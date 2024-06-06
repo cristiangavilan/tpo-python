@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PyStore</title>
+    <link rel="icon" href="favicon.png" type="image/png" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+  </head>
+  <body>
+    <nav
+      class="navbar is-fixed-top"
+      role="navigation"
+      aria-label="main navigation"
+    >
+      <div class="navbar-brand">
+        <a class="navbar-item" href="index.html">
+          <h1 class="title p-2">
+            <img src="img/icon.png" alt="icon" /> PyStore
+          </h1>
+        </a>
+
+        <a
+          role="button"
+          class="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="theNavbar"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="theNavbar" class="navbar-menu">
+        <div class="navbar-start">
+          <a href="index.html#home" class="navbar-item"
+            ><i class="bx bx-home bx-tada-hover"></i> Inicio
+          </a>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link"
+              ><i class="bx bx-category bx-tada-hover"></i> Categorías
+            </a>
+
+            <div class="navbar-dropdown">
+              <a href="index.html#electronics" class="navbar-item"
+                ><i class="bx bx-chalkboard bx-tada-hover"></i> Electrónica
+              </a>
+              <a href="index.html#jewelery" class="navbar-item"
+                ><i class="bx bx-diamond bx-tada-hover"></i> Joyas
+              </a>
+              <a href="index.html#mensclothing" class="navbar-item"
+                ><i class="bx bx-male bx-tada-hover"></i> Moda para Ellos
+              </a>
+              <a href="index.html#womensclothing" class="navbar-item"
+                ><i class="bx bx-female bx-tada-hover"></i> Moda para Ellas
+              </a>
+            </div>
+          </div>
+          <a href="index.html#contactus" class="navbar-item"
+            ><i class="bx bx-envelope bx-tada-hover"></i> Contáctenos
+          </a>
+        </div>
+
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-primary">
+                <strong><i class="bx bx-user-plus"></i> Registrar</strong>
+              </a>
+              <a class="button is-light"
+                ><i class="bx bx-user-circle"></i> Ingresar
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <section id="home" class="section">
+      <div class="container mt-6">
+        <div class="grid">
+          <div class="cell">
+            <h1 class="title">Bienvenidos</h1>
+            <p class="subtitle">
+              A la mejor tienda de electrónica, moda y joyería
+            </p>
+            <p>
+              PyStore, donde la innovación se une al estilo. Descubra un mundo
+              de productos electrónicos de primera calidad, moda femenina y
+              masculina a la última y joyas exquisitas. Nuestra variada
+              selección le garantiza que encontrará exactamente lo que necesita
+              para mejorar su estilo de vida. Compre con nosotros para disfrutar
+              de calidad, variedad y un servicio de atención al cliente
+              excepcional, todo en el mismo sitio.
+            </p>
+          </div>
+        </div>
+        <div class="grid">
+          <div class="cell has-text-centered">
+            <img src="img/shopping.svg" alt="Home" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="electronics" class="section has-background-light">
+      <div class="container mt-6">
+        <div
+          class="fixed-grid has-2-cols-desktop has-2-cols-tablet has-1-cols-mobile"
+        >
+          <div class="grid">
+            <div class="cell">
+              <h1 class="title">
+                <i class="bx bx-chalkboard bx-tada-hover"></i> Electrónica
+              </h1>
+              <p class="subtitle">
+                Tenemos para todo lo relacionado con la tecnología
+              </p>
+              <p>
+                Descubra lo último en tecnología electrónica y electrodomésticos
+                inteligentes. Encuentra ofertas increíbles en smartphones,
+                ordenadores, tablets, videoconsolas y mucho más. Actualize tus
+                gadgets hoy mismo con nuestra amplia selección de productos
+                electrónicos.
+              </p>
+            </div>
+            <div class="cell">
+              <img src="img/electro.svg" alt="Electronics" />
+            </div>
+          </div>
+        </div>
+        <div
+          class="fixed-grid has-3-cols-desktop has-2-cols-tablet has-1-cols-mobile"
+        >
+          <div
+            id="electronicsProducts"
+            class="grid animate__animated animate__fadeIn animate__delay-1s"
+          ></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="jewelery" class="section">
+      <div class="container mt-6">
+        <div
+          class="fixed-grid has-2-cols-desktop has-2-cols-tablet has-1-cols-mobile"
+        >
+          <div class="grid">
+            <div class="cell">
+              <h1 class="title">
+                <i class="bx bx-diamond bx-tada-hover"></i> Joyas
+              </h1>
+              <p class="subtitle">
+                Exquisita artesanía para una elegancia deslumbrante
+              </p>
+              <p>
+                Experimente el encanto y la sofisticación de nuestra exclusiva
+                colección de joyas. Desde clásicos atemporales hasta piezas
+                contemporáneas, nuestra selección ofrece algo para cada ocasión.
+                Eleve su estilo con nuestra exquisita artesanía y asombrosa
+                elegancia.
+              </p>
+            </div>
+            <div class="cell">
+              <img src="img/jewelery.svg" alt="Jewelery" />
+            </div>
+          </div>
+        </div>
+        <div
+          class="fixed-grid has-4-cols-desktop has-2-cols-tablet has-1-cols-mobile"
+        >
+          <div
+            id="jeweleryProducts"
+            class="grid animate__animated animate__fadeIn animate__delay-2s"
+          ></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mensclothing" class="section has-background-light">
+      <div class="container mt-6">
+        <div
+          class="fixed-grid has-2-cols-desktop has-2-cols-tablet has-1-cols-mobile"
+        >
+          <div class="grid">
+            <div class="cell">
+              <h1 class="title">
+                <i class="bx bx-male bx-tada-hover"></i> Moda para Ellos
+              </h1>
+              <p class="subtitle">
+                Eleve su estilo con nuestra exclusiva colección para hombres
+              </p>
+              <p>
+                Descubra las últimas tendencias y los clásicos atemporales de la
+                moda masculina. Desde trajes elegantes y ropa informal hasta
+                accesorios esenciales, nuestra colección está diseñada para que
+                luzcas tu mejor aspecto en cualquier ocasión. Compre ahora y
+                redefine tu armario con nuestra calidad superior y estilo
+                inigualable.
+              </p>
+            </div>
+            <div class="cell">
+              <img src="img/mensclothing.svg" alt="Men's Clothing" />
+            </div>
+          </div>
+        </div>
+        <div
+          class="fixed-grid has-4-cols-desktop has-2-cols-tablet has-1-cols-mobile"
+        >
+          <div
+            id="mensclothingProducts"
+            class="grid animate__animated animate__fadeIn animate__delay-3s"
+          ></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="womensclothing" class="section">
+      <div class="container mt-6">
+        <div
+          class="fixed-grid has-2-cols-desktop has-2-cols-tablet has-1-cols-mobile"
+        >
+          <div class="grid">
+            <div class="cell">
+              <h1 class="title">
+                <i class="bx bx-female bx-tada-hover"></i> Moda para Ellas
+              </h1>
+              <p class="subtitle">
+                Da rienda suelta a tu elegancia con nuestra moda femenina
+              </p>
+              <p>
+                Explore nuestra cuidada selección de ropa de mujer, donde la
+                sofisticación se une a la comodidad. Tanto si busca vestidos
+                elegantes como ropa de trabajo versátil o conjuntos informales
+                con estilo, nuestra colección tiene todo lo que necesitas para
+                expresar su estilo único. Compre ahora y mejore su armario con
+                nuestras prendas de moda de alta calidad.
+              </p>
+            </div>
+            <div class="cell">
+              <img src="img/womensclothing.svg" alt="Women's Clothing" />
+            </div>
+          </div>
+        </div>
+        <div
+          class="fixed-grid has-3-cols-desktop has-2-cols-tablet has-1-cols-mobile"
+        >
+          <div
+            id="womensclothingProducts"
+            class="grid animate__animated animate__fadeIn animate__delay-4s"
+          ></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contactus" class="section">
+      <div class="container mt-6">
+        <div
+          class="fixed-grid has-2-cols-desktop has-2-cols-tablet has-1-cols-mobile"
+        >
+          <div class="grid">
+            <div class="cell">
+              <h1 class="title">
+                <i class="bx bx-envelope bx-tada-hover"></i> Contáctenos
+              </h1>
+              <p class="subtitle">Póngase en contacto con nosotros</p>
+              <p>
+                ¿Tiene preguntas o necesita ayuda? Nuestro equipo en PyStore
+                está aquí para ayudar. Si tiene alguna duda sobre nuestros
+                productos, necesita ayuda con un pedido o tiene cualquier otra
+                pregunta, estamos a sólo un mensaje de distancia. Rellene el
+                siguiente formulario de contacto y nos pondremos en contacto lo
+                antes posible. Su satisfacción es nuestra máxima prioridad.
+              </p>
+            </div>
+            <div class="cell">
+              <img src="img/message.svg" alt="Contact us" />
+            </div>
+          </div>
+        </div>
+        <div id="contact" class="grid">
+          <div class="cell">
+            <form id="contactform" action="#">
+              <div class="field">
+                <label class="label">Nombre *</label>
+                <div class="control has-icons-left">
+                  <input
+                    id="inputName"
+                    class="input"
+                    type="text"
+                    placeholder="Ingrese su nombre"
+                    value=""
+                    minlength="3"
+                    maxlength="30"
+                    required
+                  />
+                  <span class="icon is-small is-left">
+                    <i class="bx bx-user bx-tada-hover"></i>
+                  </span>
+                </div>
+                <p id="adviceName" class="help"></p>
+              </div>
+
+              <div class="field">
+                <label class="label">Correo *</label>
+                <div class="control has-icons-left">
+                  <input
+                    id="inputEmail"
+                    class="input"
+                    type="email"
+                    placeholder="Ingrese su correo"
+                    value=""
+                    minlength="8"
+                    required
+                  />
+                  <span class="icon is-small is-left">
+                    <i class="bx bx-envelope"></i>
+                  </span>
+                </div>
+                <p id="adviceEmail" class="help"></p>
+              </div>
+
+              <div class="field">
+                <label class="label">Teléfono</label>
+                <div class="control has-icons-left">
+                  <input
+                    id="inputPhone"
+                    class="input"
+                    type="number"
+                    placeholder="Ingrese su Teléfono"
+                    value=""
+                  />
+                  <span class="icon is-small is-left">
+                    <i class="bx bx-phone bx-tada-hover"></i>
+                  </span>
+                </div>
+                <p id="advicePhone" class="help"></p>
+              </div>
+
+              <div class="field">
+                <label class="label">Asunto</label>
+                <div class="control">
+                  <div class="select">
+                    <select>
+                      <option value="Electronics" selected>Electrónica</option>
+                      <option value="Jewelery">Joyas</option>
+                      <option value="Men's clothing">Moda para Ellos</option>
+                      <option value="Women's clothing">Moda para Ellas</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="label">Mensaje *</label>
+                <div class="control">
+                  <textarea
+                    id="inputMessage"
+                    class="textarea"
+                    placeholder="Ingrese su Mensaje"
+                    minlength="10"
+                    required
+                  ></textarea>
+                </div>
+                <p id="adviceMessage" class="help"></p>
+              </div>
+
+              <div class="field">
+                <div class="control">
+                  <label class="checkbox">
+                    <input type="checkbox" required />
+                    Acepto los <a href="#">términos y condiciones</a>
+                  </label>
+                </div>
+              </div>
+              <div class="field is-grouped">
+                <div class="control">
+                  <button class="button is-link" type="submit">Enviar</button>
+                </div>
+                <div class="control">
+                  <button class="button is-link is-light" type="reset">
+                    Cancelar
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div id="formResponse" class="grid is-hidden">
+          <div class="cell">
+            <div class="notification is-primary">
+              <button id="clearFormResponse" class="delete"></button>
+              <p id="confirmForm"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>PyStore</strong> Sitio web creado por
+          <a href="#">Cristian Gavilan</a> para CAC 2024 Comision 24149.
+        </p>
+        <a href="#">
+          <h3>
+            <i class="bx bxl-facebook-circle"></i>
+            <i class="bx bxl-instagram"></i>
+            <i class="bx bxl-twitter"></i>
+            <i class="bx bxl-whatsapp"></i>
+          </h3>
+        </a>
+      </div>
+    </footer>
+    <script src="js/app.js" defer></script>
+  </body>
+</html>

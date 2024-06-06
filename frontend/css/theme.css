@@ -1,0 +1,6072 @@
+@charset "UTF-8";
+
+:root {
+  --pystore-control-radius: var(--pystore-radius);
+  --pystore-control-radius-small: var(--pystore-radius-small);
+  --pystore-control-border-width: 1px;
+  --pystore-control-height: 2.5em;
+  --pystore-control-line-height: 1.5;
+  --pystore-control-padding-vertical: calc(0.5em - 1px);
+  --pystore-control-padding-horizontal: calc(0.75em - 1px);
+  --pystore-control-size: var(--pystore-size-normal);
+  --pystore-control-focus-shadow-l: 50%;
+}
+
+blockquote,
+body,
+dd,
+dl,
+dt,
+fieldset,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+html,
+iframe,
+legend,
+li,
+ol,
+p,
+pre,
+textarea,
+ul {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: 400;
+}
+ul {
+  list-style: none;
+}
+button,
+input,
+select,
+textarea {
+  margin: 0;
+}
+html {
+  box-sizing: border-box;
+}
+*,
+:after,
+:before {
+  box-sizing: inherit;
+}
+img,
+video {
+  height: auto;
+  max-width: 100%;
+}
+iframe {
+  border: 0;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+td,
+th {
+  padding: 0;
+}
+td:not([align]),
+th:not([align]) {
+  text-align: inherit;
+}
+:root {
+  --pystore-body-background-color: var(--pystore-scheme-main);
+  --pystore-body-size: 1em;
+  --pystore-body-min-width: 300px;
+  --pystore-body-rendering: optimizeLegibility;
+  --pystore-body-family: var(--pystore-family-primary);
+  --pystore-body-overflow-x: hidden;
+  --pystore-body-overflow-y: scroll;
+  --pystore-body-color: var(--pystore-text);
+  --pystore-body-font-size: 1em;
+  --pystore-body-weight: var(--pystore-weight-normal);
+  --pystore-body-line-height: 1.5;
+  --pystore-code-family: var(--pystore-family-code);
+  --pystore-code-padding: 0.25em 0.5em 0.25em;
+  --pystore-code-weight: normal;
+  --pystore-code-size: 0.875em;
+  --pystore-small-font-size: 0.875em;
+  --pystore-hr-background-color: var(--pystore-background);
+  --pystore-hr-height: 2px;
+  --pystore-hr-margin: 1.5rem 0;
+  --pystore-strong-color: var(--pystore-text-strong);
+  --pystore-strong-weight: var(--pystore-weight-semibold);
+  --pystore-pre-font-size: 0.875em;
+  --pystore-pre-padding: 1.25rem 1.5rem;
+  --pystore-pre-code-font-size: 1em;
+}
+html {
+  background-color: var(--pystore-body-background-color);
+  font-size: var(--pystore-body-size);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  min-width: var(--pystore-body-min-width);
+  overflow-x: var(--pystore-body-overflow-x);
+  overflow-y: var(--pystore-body-overflow-y);
+  text-rendering: var(--pystore-body-rendering);
+  text-size-adjust: 100%;
+}
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+section {
+  display: block;
+}
+body,
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: var(--pystore-body-family);
+}
+code,
+pre {
+  -moz-osx-font-smoothing: auto;
+  -webkit-font-smoothing: auto;
+  font-family: var(--pystore-code-family);
+}
+body {
+  color: var(--pystore-body-color);
+  font-size: var(--pystore-body-font-size);
+  font-weight: var(--pystore-body-weight);
+  line-height: var(--pystore-body-line-height);
+}
+a,
+button {
+  cursor: pointer;
+}
+a:focus-visible,
+button:focus-visible {
+  outline-color: hsl(
+    var(--pystore-focus-h),
+    var(--pystore-focus-s),
+    var(--pystore-focus-l)
+  );
+  outline-offset: var(--pystore-focus-offset);
+  outline-style: var(--pystore-focus-style);
+  outline-width: var(--pystore-focus-width);
+}
+a:focus-visible:active,
+button:focus-visible:active {
+  outline-width: 1px;
+}
+a:active,
+button:active {
+  outline-width: 1px;
+}
+a {
+  color: var(--pystore-link-text);
+  cursor: pointer;
+  text-decoration: none;
+  transition-duration: var(--pystore-duration);
+  transition-property: background-color, border-color, color;
+}
+a strong {
+  color: currentColor;
+}
+button {
+  appearance: none;
+  background: none;
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
+  transition-duration: var(--pystore-duration);
+  transition-property: background-color, border-color, color;
+}
+code {
+  background-color: var(--pystore-code-background);
+  border-radius: 0.5em;
+  color: var(--pystore-code);
+  font-size: var(--pystore-code-size);
+  font-weight: var(--pystore-code-weight);
+  padding: var(--pystore-code-padding);
+}
+hr {
+  background-color: var(--pystore-hr-background-color);
+  border: none;
+  display: block;
+  height: var(--pystore-hr-height);
+  margin: var(--pystore-hr-margin);
+}
+img {
+  height: auto;
+  max-width: 100%;
+}
+input[type='checkbox'],
+input[type='radio'] {
+  vertical-align: baseline;
+}
+small {
+  font-size: var(--pystore-small-font-size);
+}
+span {
+  font-style: inherit;
+  font-weight: inherit;
+}
+strong {
+  color: var(--pystore-strong-color);
+  font-weight: var(--pystore-strong-weight);
+}
+svg {
+  height: auto;
+  width: auto;
+}
+fieldset {
+  border: none;
+}
+pre {
+  -webkit-overflow-scrolling: touch;
+  background-color: var(--pystore-pre-background);
+  color: var(--pystore-pre);
+  font-size: var(--pystore-pre-font-size);
+  overflow-x: auto;
+  padding: var(--pystore-pre-padding);
+  white-space: pre;
+  word-wrap: normal;
+}
+pre code {
+  background-color: transparent;
+  color: currentColor;
+  font-size: var(--pystore-pre-code-font-size);
+  padding: 0;
+}
+table td,
+table th {
+  vertical-align: top;
+}
+table td:not([align]),
+table th:not([align]) {
+  text-align: inherit;
+}
+table th {
+  color: var(--pystore-text-strong);
+}
+@keyframes spinAround {
+  0% {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+@keyframes pulsate {
+  50% {
+    opacity: 0.5;
+  }
+}
+.navbar-link:not(.is-arrowless):after,
+.select:not(.is-multiple):not(.is-loading):after {
+  border: 0.125em solid var(--pystore-link);
+  border-right: 0;
+  border-top: 0;
+  content: ' ';
+  display: block;
+  height: 0.625em;
+  margin-top: -0.4375em;
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: rotate(-45deg);
+  transform-origin: center;
+  transition-duration: var(--pystore-duration);
+  transition-property: border-color;
+  width: 0.625em;
+}
+.block:not(:last-child),
+.box:not(:last-child),
+.buttons:not(:last-child),
+.content:not(:last-child),
+.field:not(:last-child),
+.file:not(:last-child),
+.fixed-grid:not(:last-child),
+.grid:not(:last-child),
+.level:not(:last-child),
+.media:not(:last-child),
+.message:not(:last-child),
+.notification:not(:last-child),
+.progress:not(:last-child),
+.subtitle:not(:last-child),
+.table:not(:last-child),
+.tabs:not(:last-child),
+.tags:not(:last-child),
+.title:not(:last-child) {
+  margin-bottom: var(--pystore-block-spacing);
+}
+.button,
+.input,
+.select select,
+.textarea {
+  align-items: center;
+  appearance: none;
+  border-color: transparent;
+  border-radius: var(--pystore-control-radius);
+  border-style: solid;
+  border-width: var(--pystore-control-border-width);
+  box-shadow: none;
+  display: inline-flex;
+  font-size: var(--pystore-control-size);
+  height: var(--pystore-control-height);
+  justify-content: flex-start;
+  line-height: var(--pystore-control-line-height);
+  padding: var(--pystore-control-padding-vertical)
+    var(--pystore-control-padding-horizontal);
+  position: relative;
+  transition-duration: var(--pystore-duration);
+  transition-property: background-color, border-color, box-shadow, color;
+  vertical-align: top;
+}
+.button:active,
+.button:focus,
+.button:focus-visible,
+.button:focus-within,
+.input:active,
+.input:focus,
+.input:focus-visible,
+.input:focus-within,
+.is-active.button,
+.is-active.input,
+.is-active.textarea,
+.select select.is-active,
+.select select:active,
+.select select:focus,
+.select select:focus-visible,
+.select select:focus-within,
+.textarea:active,
+.textarea:focus,
+.textarea:focus-visible,
+.textarea:focus-within {
+  outline: none;
+}
+.select fieldset[disabled] select,
+.select select[disabled],
+[disabled].button,
+[disabled].input,
+[disabled].textarea,
+fieldset[disabled] .button,
+fieldset[disabled] .input,
+fieldset[disabled] .select select,
+fieldset[disabled] .textarea {
+  cursor: not-allowed;
+}
+
+.navbar-burger {
+  appearance: none;
+  background: none;
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
+}
+
+.button,
+.file,
+.tabs {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.box {
+  --pystore-box-background-color: var(--pystore-scheme-main);
+  --pystore-box-color: var(--pystore-text);
+  --pystore-box-radius: var(--pystore-radius-large);
+  --pystore-box-shadow: var(--pystore-shadow);
+  --pystore-box-padding: 1.25rem;
+  --pystore-box-link-hover-shadow: 0 0.5em 1em -0.125em hsla(var(--pystore-scheme-h), var(--pystore-scheme-s), var(--pystore-scheme-invert-l), 0.1),
+    0 0 0 1px var(--pystore-link);
+  --pystore-box-link-active-shadow: inset 0 1px 2px
+      hsla(
+        var(--pystore-scheme-h),
+        var(--pystore-scheme-s),
+        var(--pystore-scheme-invert-l),
+        0.2
+      ),
+    0 0 0 1px var(--pystore-link);
+  background-color: var(--pystore-box-background-color);
+  border-radius: var(--pystore-box-radius);
+  box-shadow: var(--pystore-box-shadow);
+  color: var(--pystore-box-color);
+  display: block;
+  padding: var(--pystore-box-padding);
+}
+a.box:focus,
+a.box:hover {
+  box-shadow: var(--pystore-box-link-hover-shadow);
+}
+a.box:active {
+  box-shadow: var(--pystore-box-link-active-shadow);
+}
+.button {
+  --pystore-button-family: false;
+  --pystore-button-weight: var(--pystore-weight-medium);
+  --pystore-button-border-color: var(--pystore-border);
+  --pystore-button-border-style: solid;
+  --pystore-button-border-width: var(--pystore-control-border-width);
+  --pystore-button-padding-vertical: 0.5em;
+  --pystore-button-padding-horizontal: 1em;
+  --pystore-button-focus-border-color: var(--pystore-link-focus-border);
+  --pystore-button-focus-box-shadow-size: 0 0 0 0.125em;
+  --pystore-button-focus-box-shadow-color: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-on-scheme-l),
+    0.25
+  );
+  --pystore-button-active-color: var(--pystore-link-active);
+  --pystore-button-active-border-color: var(--pystore-link-active-border);
+  --pystore-button-text-color: var(--pystore-text);
+  --pystore-button-text-decoration: underline;
+  --pystore-button-text-hover-background-color: var(--pystore-background);
+  --pystore-button-text-hover-color: var(--pystore-text-strong);
+  --pystore-button-ghost-background: none;
+  --pystore-button-ghost-border-color: transparent;
+  --pystore-button-ghost-color: var(--pystore-link-text);
+  --pystore-button-ghost-decoration: none;
+  --pystore-button-ghost-hover-color: var(--pystore-link);
+  --pystore-button-ghost-hover-decoration: underline;
+  --pystore-button-disabled-background-color: var(--pystore-scheme-main);
+  --pystore-button-disabled-border-color: var(--pystore-border);
+  --pystore-button-disabled-shadow: none;
+  --pystore-button-disabled-opacity: 0.5;
+  --pystore-button-static-color: var(--pystore-text-weak);
+  --pystore-button-static-background-color: var(--pystore-scheme-main-ter);
+  --pystore-button-static-border-color: var(--pystore-border);
+  --pystore-button-h: var(--pystore-scheme-h);
+  --pystore-button-s: var(--pystore-scheme-s);
+  --pystore-button-l: var(--pystore-scheme-main-l);
+  --pystore-button-background-l: var(--pystore-scheme-main-l);
+  --pystore-button-background-l-delta: 0%;
+  --pystore-button-hover-background-l-delta: var(
+    --pystore-hover-background-l-delta
+  );
+  --pystore-button-active-background-l-delta: var(
+    --pystore-active-background-l-delta
+  );
+  --pystore-button-color-l: var(--pystore-text-strong-l);
+  --pystore-button-border-l: var(--pystore-border-l);
+  --pystore-button-border-l-delta: 0%;
+  --pystore-button-hover-border-l-delta: var(--pystore-hover-border-l-delta);
+  --pystore-button-active-border-l-delta: var(--pystore-active-border-l-delta);
+  --pystore-button-focus-border-l-delta: var(--pystore-focus-border-l-delta);
+  --pystore-button-outer-shadow-h: 0;
+  --pystore-button-outer-shadow-s: 0%;
+  --pystore-button-outer-shadow-l: 20%;
+  --pystore-button-outer-shadow-a: 0.05;
+  --pystore-loading-color: hsl(
+    var(--pystore-button-h),
+    var(--pystore-button-s),
+    var(--pystore-button-color-l)
+  );
+  background-color: hsl(
+    var(--pystore-button-h),
+    var(--pystore-button-s),
+    calc(
+      var(--pystore-button-background-l) +
+        var(--pystore-button-background-l-delta)
+    )
+  );
+  border-color: hsl(
+    var(--pystore-button-h),
+    var(--pystore-button-s),
+    calc(var(--pystore-button-border-l) + var(--pystore-button-border-l-delta))
+  );
+  border-style: var(--pystore-button-border-style);
+  border-width: var(--pystore-button-border-width);
+  box-shadow: 0 0.0625em 0.125em
+      hsla(
+        var(--pystore-button-outer-shadow-h),
+        var(--pystore-button-outer-shadow-s),
+        var(--pystore-button-outer-shadow-l),
+        var(--pystore-button-outer-shadow-a)
+      ),
+    0 0.125em 0.25em
+      hsla(
+        var(--pystore-button-outer-shadow-h),
+        var(--pystore-button-outer-shadow-s),
+        var(--pystore-button-outer-shadow-l),
+        var(--pystore-button-outer-shadow-a)
+      );
+  color: hsl(
+    var(--pystore-button-h),
+    var(--pystore-button-s),
+    var(--pystore-button-color-l)
+  );
+  cursor: pointer;
+  font-weight: var(--pystore-button-weight);
+  height: auto;
+  justify-content: center;
+  padding: calc(
+      var(--pystore-button-padding-vertical) -
+        var(--pystore-button-border-width)
+    )
+    calc(
+      var(--pystore-button-padding-horizontal) -
+        var(--pystore-button-border-width)
+    );
+  text-align: center;
+  white-space: nowrap;
+}
+.button strong {
+  color: inherit;
+}
+.button .icon,
+.button .icon.is-large,
+.button .icon.is-small {
+  height: 1.5em;
+  width: 1.5em;
+}
+.button .icon:first-child:not(:last-child) {
+  margin-inline-end: calc(var(--pystore-button-padding-horizontal) * 0.25);
+  margin-inline-start: calc(var(--pystore-button-padding-horizontal) * -0.5);
+}
+.button .icon:last-child:not(:first-child) {
+  margin-inline-end: calc(var(--pystore-button-padding-horizontal) * -0.5);
+  margin-inline-start: calc(var(--pystore-button-padding-horizontal) * 0.25);
+}
+.button .icon:first-child:last-child {
+  margin-inline-end: calc(var(--pystore-button-padding-horizontal) * -0.5);
+  margin-inline-start: calc(var(--pystore-button-padding-horizontal) * -0.5);
+}
+
+.button:hover {
+  --pystore-button-background-l-delta: var(
+    --pystore-button-hover-background-l-delta
+  );
+  --pystore-button-border-l-delta: var(--pystore-button-hover-border-l-delta);
+}
+
+.button:focus-visible {
+  --pystore-button-border-width: 1px;
+  border-color: hsl(
+    var(--pystore-focus-h),
+    var(--pystore-focus-s),
+    var(--pystore-focus-l)
+  );
+  box-shadow: var(--pystore-focus-shadow-size)
+    hsla(
+      var(--pystore-focus-h),
+      var(--pystore-focus-s),
+      var(--pystore-focus-l),
+      var(--pystore-focus-shadow-alpha)
+    );
+}
+.button.is-active,
+.button:active {
+  --pystore-button-background-l-delta: var(
+    --pystore-button-active-background-l-delta
+  );
+  --pystore-button-border-l-delta: var(--pystore-button-active-border-l-delta);
+  --pystore-button-outer-shadow-a: 0;
+}
+.button[disabled],
+fieldset[disabled] .button {
+  background-color: var(--pystore-button-disabled-background-color);
+  border-color: var(--pystore-button-disabled-border-color);
+  box-shadow: var(--pystore-button-disabled-shadow);
+  opacity: var(--pystore-button-disabled-opacity);
+}
+.button.is-light {
+  --pystore-button-h: var(--pystore-light-h);
+  --pystore-button-s: var(--pystore-light-s);
+  --pystore-button-l: var(--pystore-light-l);
+  --pystore-button-background-l: var(--pystore-light-l);
+  --pystore-button-border-l: var(--pystore-light-l);
+  --pystore-button-border-width: 0px;
+  --pystore-button-color-l: var(--pystore-light-invert-l);
+  --pystore-button-outer-shadow-a: 0;
+}
+
+.button.is-light:focus-visible {
+  --pystore-button-border-width: 1px;
+}
+.button.is-light[disabled],
+fieldset[disabled] .button.is-light {
+  background-color: var(--pystore-light);
+  border-color: var(--pystore-light);
+  box-shadow: none;
+}
+.button.is-primary {
+  --pystore-button-h: var(--pystore-primary-h);
+  --pystore-button-s: var(--pystore-primary-s);
+  --pystore-button-l: var(--pystore-primary-l);
+  --pystore-button-background-l: var(--pystore-primary-l);
+  --pystore-button-border-l: var(--pystore-primary-l);
+  --pystore-button-border-width: 0px;
+  --pystore-button-color-l: var(--pystore-primary-invert-l);
+  --pystore-button-outer-shadow-a: 0;
+}
+
+.button.is-primary:focus-visible {
+  --pystore-button-border-width: 1px;
+}
+.button.is-primary.is-light {
+  --pystore-button-background-l: var(--pystore-light-l);
+  --pystore-button-color-l: var(--pystore-primary-light-invert-l);
+}
+.button.is-primary[disabled],
+fieldset[disabled] .button.is-primary {
+  background-color: var(--pystore-primary);
+  border-color: var(--pystore-primary);
+  box-shadow: none;
+}
+.button.is-link {
+  --pystore-button-h: var(--pystore-link-h);
+  --pystore-button-s: var(--pystore-link-s);
+  --pystore-button-l: var(--pystore-link-l);
+  --pystore-button-background-l: var(--pystore-link-l);
+  --pystore-button-border-l: var(--pystore-link-l);
+  --pystore-button-border-width: 0px;
+  --pystore-button-color-l: var(--pystore-link-invert-l);
+  --pystore-button-outer-shadow-a: 0;
+}
+
+.button.is-link:focus-visible {
+  --pystore-button-border-width: 1px;
+}
+.button.is-link.is-light {
+  --pystore-button-background-l: var(--pystore-light-l);
+  --pystore-button-color-l: var(--pystore-link-light-invert-l);
+}
+.button.is-link[disabled],
+fieldset[disabled] .button.is-link {
+  background-color: var(--pystore-link);
+  border-color: var(--pystore-link);
+  box-shadow: none;
+}
+.button.is-success {
+  --pystore-button-h: var(--pystore-success-h);
+  --pystore-button-s: var(--pystore-success-s);
+  --pystore-button-l: var(--pystore-success-l);
+  --pystore-button-background-l: var(--pystore-success-l);
+  --pystore-button-border-l: var(--pystore-success-l);
+  --pystore-button-border-width: 0px;
+  --pystore-button-color-l: var(--pystore-success-invert-l);
+  --pystore-button-outer-shadow-a: 0;
+}
+
+.button.is-success:focus-visible {
+  --pystore-button-border-width: 1px;
+}
+.button.is-success.is-light {
+  --pystore-button-background-l: var(--pystore-light-l);
+  --pystore-button-color-l: var(--pystore-success-light-invert-l);
+}
+.button.is-success[disabled],
+fieldset[disabled] .button.is-success {
+  background-color: var(--pystore-success);
+  border-color: var(--pystore-success);
+  box-shadow: none;
+}
+.button.is-danger {
+  --pystore-button-h: var(--pystore-danger-h);
+  --pystore-button-s: var(--pystore-danger-s);
+  --pystore-button-l: var(--pystore-danger-l);
+  --pystore-button-background-l: var(--pystore-danger-l);
+  --pystore-button-border-l: var(--pystore-danger-l);
+  --pystore-button-border-width: 0px;
+  --pystore-button-color-l: var(--pystore-danger-invert-l);
+  --pystore-button-outer-shadow-a: 0;
+}
+
+.button.is-danger:focus-visible {
+  --pystore-button-border-width: 1px;
+}
+.button.is-danger.is-light {
+  --pystore-button-background-l: var(--pystore-light-l);
+  --pystore-button-color-l: var(--pystore-danger-light-invert-l);
+}
+.button.is-danger[disabled],
+fieldset[disabled] .button.is-danger {
+  background-color: var(--pystore-danger);
+  border-color: var(--pystore-danger);
+  box-shadow: none;
+}
+.button.is-small {
+  --pystore-control-size: var(--pystore-size-small);
+  --pystore-control-radius: var(--pystore-radius-small);
+}
+.button.is-large {
+  --pystore-control-size: var(--pystore-size-large);
+  --pystore-control-radius: var(--pystore-radius-medium);
+}
+.button.is-rounded {
+  border-radius: var(--pystore-radius-rounded);
+  padding-left: calc(var(--pystore-button-padding-horizontal) + 0.25em);
+  padding-right: calc(var(--pystore-button-padding-horizontal) + 0.25em);
+}
+.buttons {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: flex-start;
+}
+.content {
+  --pystore-content-heading-color: var(--pystore-text-strong);
+  --pystore-content-heading-weight: var(--pystore-weight-extrabold);
+  --pystore-content-heading-line-height: 1.125;
+  --pystore-content-block-margin-bottom: 1em;
+  --pystore-content-blockquote-background-color: var(--pystore-background);
+  --pystore-content-blockquote-border-left: 5px solid var(--pystore-border);
+  --pystore-content-blockquote-padding: 1.25em 1.5em;
+  --pystore-content-pre-padding: 1.25em 1.5em;
+  --pystore-content-table-cell-border: 1px solid var(--pystore-border);
+  --pystore-content-table-cell-border-width: 0 0 1px;
+  --pystore-content-table-cell-padding: 0.5em 0.75em;
+  --pystore-content-table-cell-heading-color: var(--pystore-text-strong);
+  --pystore-content-table-head-cell-border-width: 0 0 2px;
+  --pystore-content-table-head-cell-color: var(--pystore-text-strong);
+  --pystore-content-table-body-last-row-cell-border-bottom-width: 0;
+  --pystore-content-table-foot-cell-border-width: 2px 0 0;
+  --pystore-content-table-foot-cell-color: var(--pystore-text-strong);
+}
+.content li + li {
+  margin-top: 0.25em;
+}
+.content blockquote:not(:last-child),
+.content dl:not(:last-child),
+.content ol:not(:last-child),
+.content p:not(:last-child),
+.content pre:not(:last-child),
+.content table:not(:last-child),
+.content ul:not(:last-child) {
+  margin-bottom: var(--pystore-content-block-margin-bottom);
+}
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  color: var(--pystore-content-heading-color);
+  font-weight: var(--pystore-content-heading-weight);
+  line-height: var(--pystore-content-heading-line-height);
+}
+.content h1 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+.content h1:not(:first-child) {
+  margin-top: 1em;
+}
+.content h2 {
+  font-size: 1.75em;
+  margin-bottom: 0.5714em;
+}
+.content h2:not(:first-child) {
+  margin-top: 1.1428em;
+}
+.content h3 {
+  font-size: 1.5em;
+  margin-bottom: 0.6666em;
+}
+.content h3:not(:first-child) {
+  margin-top: 1.3333em;
+}
+.content h4 {
+  font-size: 1.25em;
+  margin-bottom: 0.8em;
+}
+.content h5 {
+  font-size: 1.125em;
+  margin-bottom: 0.8888em;
+}
+.content h6 {
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+.content blockquote {
+  background-color: var(--pystore-content-blockquote-background-color);
+  border-inline-start: var(--pystore-content-blockquote-border-left);
+  padding: var(--pystore-content-blockquote-padding);
+}
+.content ol {
+  list-style-position: outside;
+  margin-inline-start: 2em;
+  margin-top: 1em;
+}
+.content ol:not([type]) {
+  list-style-type: decimal;
+}
+.content ul {
+  list-style: disc outside;
+  margin-inline-start: 2em;
+  margin-top: 1em;
+}
+.content ul ul {
+  list-style-type: circle;
+  margin-bottom: 0.25em;
+  margin-top: 0.25em;
+}
+.content ul ul ul {
+  list-style-type: square;
+}
+.content dd {
+  margin-inline-start: 2em;
+}
+.content figure:not([class]) {
+  margin-left: 2em;
+  margin-right: 2em;
+  text-align: center;
+}
+.content figure:not([class]):not(:first-child) {
+  margin-top: 2em;
+}
+.content figure:not([class]):not(:last-child) {
+  margin-bottom: 2em;
+}
+.content figure:not([class]) img {
+  display: inline-block;
+}
+.content figure:not([class]) figcaption {
+  font-style: italic;
+}
+.content pre {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
+  padding: var(--pystore-content-pre-padding);
+  white-space: pre;
+  word-wrap: normal;
+}
+.content sub,
+.content sup {
+  font-size: 75%;
+}
+.content table td,
+.content table th {
+  border: var(--pystore-content-table-cell-border);
+  border-width: var(--pystore-content-table-cell-border-width);
+  padding: var(--pystore-content-table-cell-padding);
+  vertical-align: top;
+}
+.content table th {
+  color: var(--pystore-content-table-cell-heading-color);
+}
+.content table th:not([align]) {
+  text-align: inherit;
+}
+.content table thead td,
+.content table thead th {
+  border-width: var(--pystore-content-table-head-cell-border-width);
+  color: var(--pystore-content-table-head-cell-color);
+}
+.content table tfoot td,
+.content table tfoot th {
+  border-width: var(--pystore-content-table-foot-cell-border-width);
+  color: var(--pystore-content-table-foot-cell-color);
+}
+.content table tbody tr:last-child td,
+.content table tbody tr:last-child th {
+  border-bottom-width: var(
+    --pystore-content-table-body-last-row-cell-border-bottom-width
+  );
+}
+.content .tabs li + li {
+  margin-top: 0;
+}
+.content.is-small {
+  font-size: var(--pystore-size-small);
+}
+.content.is-large {
+  font-size: var(--pystore-size-large);
+}
+.delete {
+  --pystore-delete-dimensions: 1.25rem;
+  --pystore-delete-background-l: 0%;
+  --pystore-delete-background-alpha: 0.5;
+  --pystore-delete-color: var(--pystore-white);
+  appearance: none;
+  background-color: hsla(
+    var(--pystore-scheme-h),
+    var(--pystore-scheme-s),
+    var(--pystore-delete-background-l),
+    var(--pystore-delete-background-alpha)
+  );
+  border: none;
+  border-radius: var(--pystore-radius-rounded);
+  cursor: pointer;
+  display: inline-flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  font-size: 1em;
+  height: var(--pystore-delete-dimensions);
+  max-height: var(--pystore-delete-dimensions);
+  max-width: var(--pystore-delete-dimensions);
+  min-height: var(--pystore-delete-dimensions);
+  min-width: var(--pystore-delete-dimensions);
+  outline: none;
+  pointer-events: auto;
+  position: relative;
+  vertical-align: top;
+  width: var(--pystore-delete-dimensions);
+}
+.delete:after,
+.delete:before {
+  background-color: var(--pystore-delete-color);
+  content: '';
+  display: block;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  transform-origin: center center;
+}
+.delete:before {
+  height: 2px;
+  width: 50%;
+}
+.delete:after {
+  height: 50%;
+  width: 2px;
+}
+.delete:focus,
+.delete:hover {
+  --pystore-delete-background-alpha: 0.4;
+}
+.delete:active {
+  --pystore-delete-background-alpha: 0.5;
+}
+.delete.is-small {
+  --pystore-delete-dimensions: 1rem;
+}
+.delete.is-large {
+  --pystore-delete-dimensions: 2rem;
+}
+.icon {
+  --pystore-icon-dimensions: 1.5rem;
+  --pystore-icon-dimensions-small: 1rem;
+  --pystore-icon-dimensions-medium: 2rem;
+  --pystore-icon-dimensions-large: 3rem;
+  --pystore-icon-text-spacing: 0.25em;
+}
+.icon {
+  align-items: center;
+  display: inline-flex;
+  flex-shrink: 0;
+  height: var(--pystore-icon-dimensions);
+  justify-content: center;
+  transition-duration: var(--pystore-duration);
+  transition-property: color;
+  width: var(--pystore-icon-dimensions);
+}
+.icon.is-small {
+  height: var(--pystore-icon-dimensions-small);
+  width: var(--pystore-icon-dimensions-small);
+}
+.icon.is-large {
+  height: var(--pystore-icon-dimensions-large);
+  width: var(--pystore-icon-dimensions-large);
+}
+.image {
+  display: block;
+  position: relative;
+}
+.image img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+.image img.is-rounded {
+  border-radius: var(--pystore-radius-rounded);
+}
+.image.is-3by4 {
+  aspect-ratio: 3/4;
+}
+
+.image.is-3by4 img {
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+}
+.loader {
+  animation: spinAround 0.5s linear infinite;
+  border-bottom: 2px solid var(--pystore-border);
+  border-left: 2px solid var(--pystore-border);
+  border-radius: var(--pystore-radius-rounded);
+  border-right: 2px solid transparent;
+  border-top: 2px solid transparent;
+  content: '';
+  display: block;
+  height: 1em;
+  position: relative;
+  width: 1em;
+}
+.notification {
+  --pystore-notification-h: var(--pystore-scheme-h);
+  --pystore-notification-s: var(--pystore-scheme-s);
+  --pystore-notification-background-l: var(--pystore-background-l);
+  --pystore-notification-color-l: var(--pystore-text-strong-l);
+  --pystore-notification-code-background-color: var(--pystore-scheme-main);
+  --pystore-notification-radius: var(--pystore-radius);
+  --pystore-notification-padding: 1.375em 1.5em;
+  background-color: hsl(
+    var(--pystore-notification-h),
+    var(--pystore-notification-s),
+    var(--pystore-notification-background-l)
+  );
+  border-radius: var(--pystore-notification-radius);
+  color: hsl(
+    var(--pystore-notification-h),
+    var(--pystore-notification-s),
+    var(--pystore-notification-color-l)
+  );
+  padding: var(--pystore-notification-padding);
+  position: relative;
+}
+.notification a:not(.button):not(.dropdown-item) {
+  color: currentColor;
+  text-decoration: underline;
+}
+.notification strong {
+  color: currentColor;
+}
+.notification code,
+.notification pre {
+  background: var(--pystore-notification-code-background-color);
+}
+.notification pre code {
+  background: transparent;
+}
+.notification > .delete {
+  inset-inline-end: 1rem;
+  position: absolute;
+  top: 1rem;
+}
+.notification .content,
+.notification .subtitle,
+.notification .title {
+  color: currentColor;
+}
+.notification.is-light {
+  --pystore-notification-h: var(--pystore-light-h);
+  --pystore-notification-s: var(--pystore-light-s);
+  --pystore-notification-background-l: var(--pystore-light-l);
+  --pystore-notification-color-l: var(--pystore-light-invert-l);
+}
+.notification.is-light.is-light {
+  --pystore-notification-background-l: 90%;
+  --pystore-notification-color-l: var(--pystore-light-light-invert-l);
+}
+.notification.is-primary {
+  --pystore-notification-h: var(--pystore-primary-h);
+  --pystore-notification-s: var(--pystore-primary-s);
+  --pystore-notification-background-l: var(--pystore-primary-l);
+  --pystore-notification-color-l: var(--pystore-primary-invert-l);
+}
+.notification.is-primary.is-light {
+  --pystore-notification-background-l: 90%;
+  --pystore-notification-color-l: var(--pystore-primary-light-invert-l);
+}
+.notification.is-link {
+  --pystore-notification-h: var(--pystore-link-h);
+  --pystore-notification-s: var(--pystore-link-s);
+  --pystore-notification-background-l: var(--pystore-link-l);
+  --pystore-notification-color-l: var(--pystore-link-invert-l);
+}
+.notification.is-link.is-light {
+  --pystore-notification-background-l: 90%;
+  --pystore-notification-color-l: var(--pystore-link-light-invert-l);
+}
+.notification.is-success {
+  --pystore-notification-h: var(--pystore-success-h);
+  --pystore-notification-s: var(--pystore-success-s);
+  --pystore-notification-background-l: var(--pystore-success-l);
+  --pystore-notification-color-l: var(--pystore-success-invert-l);
+}
+.notification.is-success.is-light {
+  --pystore-notification-background-l: 90%;
+  --pystore-notification-color-l: var(--pystore-success-light-invert-l);
+}
+.notification.is-danger {
+  --pystore-notification-h: var(--pystore-danger-h);
+  --pystore-notification-s: var(--pystore-danger-s);
+  --pystore-notification-background-l: var(--pystore-danger-l);
+  --pystore-notification-color-l: var(--pystore-danger-invert-l);
+}
+.notification.is-danger.is-light {
+  --pystore-notification-background-l: 90%;
+  --pystore-notification-color-l: var(--pystore-danger-light-invert-l);
+}
+.progress {
+  --pystore-progress-border-radius: var(--pystore-radius-rounded);
+  --pystore-progress-bar-background-color: var(--pystore-border-weak);
+  --pystore-progress-value-background-color: var(--pystore-text);
+  --pystore-progress-indeterminate-duration: 1.5s;
+  appearance: none;
+  border: none;
+  border-radius: var(--pystore-progress-border-radius);
+  display: block;
+  height: var(--pystore-size-normal);
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+}
+.progress::-webkit-progress-bar {
+  background-color: var(--pystore-progress-bar-background-color);
+}
+.progress::-webkit-progress-value {
+  background-color: var(--pystore-progress-value-background-color);
+}
+.progress::-moz-progress-bar {
+  background-color: var(--pystore-progress-value-background-color);
+}
+.progress::-ms-fill {
+  background-color: var(--pystore-progress-value-background-color);
+  border: none;
+}
+.progress.is-light {
+  --pystore-progress-value-background-color: var(--pystore-light);
+}
+.progress.is-primary {
+  --pystore-progress-value-background-color: var(--pystore-primary);
+}
+.progress.is-link {
+  --pystore-progress-value-background-color: var(--pystore-link);
+}
+.progress.is-success {
+  --pystore-progress-value-background-color: var(--pystore-success);
+}
+.progress.is-danger {
+  --pystore-progress-value-background-color: var(--pystore-danger);
+}
+.progress:indeterminate {
+  animation-duration: var(--pystore-progress-indeterminate-duration);
+  animation-iteration-count: infinite;
+  animation-name: moveIndeterminate;
+  animation-timing-function: linear;
+  background-color: var(--pystore-progress-bar-background-color);
+  background-image: linear-gradient(
+    to right,
+    var(--pystore-progress-value-background-color) 30%,
+    var(--pystore-progress-bar-background-color) 30%
+  );
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 150% 150%;
+}
+.progress:indeterminate::-webkit-progress-bar {
+  background-color: transparent;
+}
+.progress:indeterminate::-moz-progress-bar {
+  background-color: transparent;
+}
+.progress:indeterminate::-ms-fill {
+  animation-name: none;
+}
+.progress.is-small {
+  height: var(--pystore-size-small);
+}
+.progress.is-large {
+  height: var(--pystore-size-large);
+}
+@keyframes moveIndeterminate {
+  0% {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+.table {
+  --pystore-table-color: var(--pystore-text-strong);
+  --pystore-table-background-color: var(--pystore-scheme-main);
+  --pystore-table-cell-border-color: var(--pystore-border);
+  --pystore-table-cell-border-style: solid;
+  --pystore-table-cell-border-width: 0 0 1px;
+  --pystore-table-cell-padding: 0.5em 0.75em;
+  --pystore-table-cell-heading-color: var(--pystore-text-strong);
+  --pystore-table-cell-text-align: left;
+  --pystore-table-head-cell-border-width: 0 0 2px;
+  --pystore-table-head-cell-color: var(--pystore-text-strong);
+  --pystore-table-foot-cell-border-width: 2px 0 0;
+  --pystore-table-foot-cell-color: var(--pystore-text-strong);
+  --pystore-table-head-background-color: transparent;
+  --pystore-table-body-background-color: transparent;
+  --pystore-table-foot-background-color: transparent;
+  --pystore-table-row-hover-background-color: var(--pystore-scheme-main-bis);
+  --pystore-table-row-active-background-color: var(--pystore-primary);
+  --pystore-table-row-active-color: var(--pystore-primary-invert);
+  --pystore-table-striped-row-even-background-color: var(
+    --pystore-scheme-main-bis
+  );
+  --pystore-table-striped-row-even-hover-background-color: var(
+    --pystore-scheme-main-ter
+  );
+  background-color: var(--pystore-table-background-color);
+}
+.table,
+.table td,
+.table th {
+  color: var(--pystore-table-color);
+}
+.table td,
+.table th {
+  background-color: var(--pystore-table-cell-background-color);
+  border-color: var(--pystore-table-cell-border-color);
+  border-style: var(--pystore-table-cell-border-style);
+  border-width: var(--pystore-table-cell-border-width);
+  padding: var(--pystore-table-cell-padding);
+  vertical-align: top;
+}
+.table td.is-light,
+.table th.is-light {
+  --pystore-table-color: var(--pystore-light-invert);
+  --pystore-table-cell-heading-color: var(--pystore-light-invert);
+  --pystore-table-cell-background-color: var(--pystore-light);
+  --pystore-table-cell-border-color: var(--pystore-light);
+}
+.table td.is-primary,
+.table th.is-primary {
+  --pystore-table-color: var(--pystore-primary-invert);
+  --pystore-table-cell-heading-color: var(--pystore-primary-invert);
+  --pystore-table-cell-background-color: var(--pystore-primary);
+  --pystore-table-cell-border-color: var(--pystore-primary);
+}
+.table td.is-link,
+.table th.is-link {
+  --pystore-table-color: var(--pystore-link-invert);
+  --pystore-table-cell-heading-color: var(--pystore-link-invert);
+  --pystore-table-cell-background-color: var(--pystore-link);
+  --pystore-table-cell-border-color: var(--pystore-link);
+}
+.table td.is-success,
+.table th.is-success {
+  --pystore-table-color: var(--pystore-success-invert);
+  --pystore-table-cell-heading-color: var(--pystore-success-invert);
+  --pystore-table-cell-background-color: var(--pystore-success);
+  --pystore-table-cell-border-color: var(--pystore-success);
+}
+.table td.is-danger,
+.table th.is-danger {
+  --pystore-table-color: var(--pystore-danger-invert);
+  --pystore-table-cell-heading-color: var(--pystore-danger-invert);
+  --pystore-table-cell-background-color: var(--pystore-danger);
+  --pystore-table-cell-border-color: var(--pystore-danger);
+}
+.table th {
+  color: var(--pystore-table-cell-heading-color);
+}
+.table th:not([align]) {
+  text-align: var(--pystore-table-cell-text-align);
+}
+.table tr.is-light {
+  --pystore-table-color: var(--pystore-light-invert);
+  --pystore-table-cell-heading-color: var(--pystore-light-invert);
+  --pystore-table-cell-background-color: var(--pystore-light);
+  --pystore-table-cell-border-color: var(--pystore-light);
+}
+.table tr.is-primary {
+  --pystore-table-color: var(--pystore-primary-invert);
+  --pystore-table-cell-heading-color: var(--pystore-primary-invert);
+  --pystore-table-cell-background-color: var(--pystore-primary);
+  --pystore-table-cell-border-color: var(--pystore-primary);
+}
+.table tr.is-link {
+  --pystore-table-color: var(--pystore-link-invert);
+  --pystore-table-cell-heading-color: var(--pystore-link-invert);
+  --pystore-table-cell-background-color: var(--pystore-link);
+  --pystore-table-cell-border-color: var(--pystore-link);
+}
+.table tr.is-success {
+  --pystore-table-color: var(--pystore-success-invert);
+  --pystore-table-cell-heading-color: var(--pystore-success-invert);
+  --pystore-table-cell-background-color: var(--pystore-success);
+  --pystore-table-cell-border-color: var(--pystore-success);
+}
+.table tr.is-danger {
+  --pystore-table-color: var(--pystore-danger-invert);
+  --pystore-table-cell-heading-color: var(--pystore-danger-invert);
+  --pystore-table-cell-background-color: var(--pystore-danger);
+  --pystore-table-cell-border-color: var(--pystore-danger);
+}
+.table thead {
+  background-color: var(--pystore-table-head-background-color);
+}
+.table thead td,
+.table thead th {
+  border-width: var(--pystore-table-head-cell-border-width);
+  color: var(--pystore-table-head-cell-color);
+}
+.table tfoot {
+  background-color: var(--pystore-table-foot-background-color);
+}
+.table tfoot td,
+.table tfoot th {
+  border-width: var(--pystore-table-foot-cell-border-width);
+  color: var(--pystore-table-foot-cell-color);
+}
+.table tbody {
+  background-color: var(--pystore-table-body-background-color);
+}
+.table tbody tr:last-child td,
+.table tbody tr:last-child th {
+  border-bottom-width: 0;
+}
+.table.is-hoverable tbody tr:not(.is-selected):hover {
+  background-color: var(--pystore-table-row-hover-background-color);
+}
+.tags {
+  align-items: center;
+  color: hsl(
+    var(--pystore-tag-h),
+    var(--pystore-tag-s),
+    var(--pystore-tag-color-l)
+  );
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: flex-start;
+}
+.tag {
+  --pystore-tag-h: var(--pystore-scheme-h);
+  --pystore-tag-s: var(--pystore-scheme-s);
+  --pystore-tag-background-l: var(--pystore-background-l);
+  --pystore-tag-background-l-delta: 0%;
+  --pystore-tag-hover-background-l-delta: var(
+    --pystore-hover-background-l-delta
+  );
+  --pystore-tag-active-background-l-delta: var(
+    --pystore-active-background-l-delta
+  );
+  --pystore-tag-color-l: var(--pystore-text-l);
+  --pystore-tag-radius: var(--pystore-radius);
+  --pystore-tag-delete-margin: 1px;
+  align-items: center;
+  background-color: hsl(
+    var(--pystore-tag-h),
+    var(--pystore-tag-s),
+    calc(
+      var(--pystore-tag-background-l) + var(--pystore-tag-background-l-delta)
+    )
+  );
+  border-radius: var(--pystore-radius);
+  color: hsl(
+    var(--pystore-tag-h),
+    var(--pystore-tag-s),
+    var(--pystore-tag-color-l)
+  );
+  display: inline-flex;
+  font-size: var(--pystore-size-small);
+  height: 2em;
+  justify-content: center;
+  line-height: 1.5;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  white-space: nowrap;
+}
+.tag .delete {
+  margin-inline-end: -0.375rem;
+  margin-inline-start: 0.25rem;
+}
+.tag.is-light {
+  --pystore-tag-h: var(--pystore-light-h);
+  --pystore-tag-s: var(--pystore-light-s);
+  --pystore-tag-background-l: var(--pystore-light-l);
+  --pystore-tag-color-l: var(--pystore-light-invert-l);
+}
+.tag.is-light.is-light {
+  --pystore-tag-background-l: var(--pystore-light-l);
+  --pystore-tag-color-l: var(--pystore-light-light-invert-l);
+}
+.tag.is-primary {
+  --pystore-tag-h: var(--pystore-primary-h);
+  --pystore-tag-s: var(--pystore-primary-s);
+  --pystore-tag-background-l: var(--pystore-primary-l);
+  --pystore-tag-color-l: var(--pystore-primary-invert-l);
+}
+.tag.is-primary.is-light {
+  --pystore-tag-background-l: var(--pystore-light-l);
+  --pystore-tag-color-l: var(--pystore-primary-light-invert-l);
+}
+.tag.is-link {
+  --pystore-tag-h: var(--pystore-link-h);
+  --pystore-tag-s: var(--pystore-link-s);
+  --pystore-tag-background-l: var(--pystore-link-l);
+  --pystore-tag-color-l: var(--pystore-link-invert-l);
+}
+.tag.is-link.is-light {
+  --pystore-tag-background-l: var(--pystore-light-l);
+  --pystore-tag-color-l: var(--pystore-link-light-invert-l);
+}
+.tag.is-success {
+  --pystore-tag-h: var(--pystore-success-h);
+  --pystore-tag-s: var(--pystore-success-s);
+  --pystore-tag-background-l: var(--pystore-success-l);
+  --pystore-tag-color-l: var(--pystore-success-invert-l);
+}
+.tag.is-success.is-light {
+  --pystore-tag-background-l: var(--pystore-light-l);
+  --pystore-tag-color-l: var(--pystore-success-light-invert-l);
+}
+.tag.is-danger {
+  --pystore-tag-h: var(--pystore-danger-h);
+  --pystore-tag-s: var(--pystore-danger-s);
+  --pystore-tag-background-l: var(--pystore-danger-l);
+  --pystore-tag-color-l: var(--pystore-danger-invert-l);
+}
+.tag.is-danger.is-light {
+  --pystore-tag-background-l: var(--pystore-light-l);
+  --pystore-tag-color-l: var(--pystore-danger-light-invert-l);
+}
+.tag.is-large {
+  font-size: var(--pystore-size-medium);
+}
+.tag .icon:first-child:not(:last-child) {
+  margin-inline-end: 0.1875em;
+  margin-inline-start: -0.375em;
+}
+.tag .icon:last-child:not(:first-child) {
+  margin-inline-end: -0.375em;
+  margin-inline-start: 0.1875em;
+}
+.tag .icon:first-child:last-child {
+  margin-inline-end: -0.375em;
+  margin-inline-start: -0.375em;
+}
+.tag.is-rounded {
+  border-radius: var(--pystore-radius-rounded);
+}
+.tag.is-hoverable,
+a.tag,
+button.tag {
+  cursor: pointer;
+}
+.tag.is-hoverable:hover,
+a.tag:hover,
+button.tag:hover {
+  --pystore-tag-background-l-delta: var(--pystore-tag-hover-background-l-delta);
+}
+.tag.is-hoverable:active,
+a.tag:active,
+button.tag:active {
+  --pystore-tag-background-l-delta: var(
+    --pystore-tag-active-background-l-delta
+  );
+}
+.subtitle,
+.title {
+  --pystore-title-color: var(--pystore-text-strong);
+  --pystore-title-family: false;
+  --pystore-title-size: var(--pystore-size-3);
+  --pystore-title-weight: var(--pystore-weight-extrabold);
+  --pystore-title-line-height: 1.125;
+  --pystore-title-strong-color: inherit;
+  --pystore-title-strong-weight: inherit;
+  --pystore-title-sub-size: 0.75em;
+  --pystore-title-sup-size: 0.75em;
+  --pystore-subtitle-color: var(--pystore-text);
+  --pystore-subtitle-family: false;
+  --pystore-subtitle-size: var(--pystore-size-5);
+  --pystore-subtitle-weight: var(--pystore-weight-normal);
+  --pystore-subtitle-line-height: 1.25;
+  --pystore-subtitle-strong-color: var(--pystore-text-strong);
+  --pystore-subtitle-strong-weight: var(--pystore-weight-semibold);
+  word-break: break-word;
+}
+.subtitle em,
+.subtitle span,
+.title em,
+.title span {
+  font-weight: inherit;
+}
+.subtitle sub,
+.title sub {
+  font-size: var(--pystore-title-sub-size);
+}
+.subtitle sup,
+.title sup {
+  font-size: var(--pystore-title-sup-size);
+}
+.subtitle .tag,
+.title .tag {
+  vertical-align: middle;
+}
+.title {
+  color: var(--pystore-title-color);
+  font-size: var(--pystore-title-size);
+  font-weight: var(--pystore-title-weight);
+  line-height: var(--pystore-title-line-height);
+}
+.title strong {
+  color: var(--pystore-title-strong-color);
+  font-weight: var(--pystore-title-strong-weight);
+}
+.title:not(.is-spaced):has(+ .subtitle) {
+  margin-bottom: 0;
+}
+.title.is-5 {
+  font-size: 1.25rem;
+}
+.title.is-6 {
+  font-size: 1rem;
+}
+.subtitle {
+  color: var(--pystore-subtitle-color);
+  font-size: var(--pystore-subtitle-size);
+  font-weight: var(--pystore-subtitle-weight);
+  line-height: var(--pystore-subtitle-line-height);
+}
+.subtitle strong {
+  color: var(--pystore-subtitle-strong-color);
+  font-weight: var(--pystore-subtitle-strong-weight);
+}
+.subtitle:not(.is-spaced):has(+ .title) {
+  margin-bottom: 0;
+}
+.subtitle.is-5 {
+  font-size: 1.25rem;
+}
+.subtitle.is-6 {
+  font-size: 1rem;
+}
+.control,
+.input,
+.select select,
+.textarea {
+  --pystore-input-h: var(--pystore-scheme-h);
+  --pystore-input-s: var(--pystore-scheme-s);
+  --pystore-input-l: var(--pystore-scheme-main-l);
+  --pystore-input-border-l: var(--pystore-border-l);
+  --pystore-input-border-l-delta: 0%;
+  --pystore-input-hover-border-l-delta: var(--pystore-hover-border-l-delta);
+  --pystore-input-active-border-l-delta: var(--pystore-active-border-l-delta);
+  --pystore-input-focus-h: var(--pystore-focus-h);
+  --pystore-input-focus-s: var(--pystore-focus-s);
+  --pystore-input-focus-l: var(--pystore-focus-l);
+  --pystore-input-focus-shadow-size: var(--pystore-focus-shadow-size);
+  --pystore-input-focus-shadow-alpha: var(--pystore-focus-shadow-alpha);
+  --pystore-input-color-l: var(--pystore-text-strong-l);
+  --pystore-input-background-l: var(--pystore-scheme-main-l);
+  --pystore-input-background-l-delta: 0%;
+  --pystore-input-height: var(--pystore-control-height);
+  --pystore-input-shadow: inset 0 0.0625em 0.125em
+    hsla(
+      var(--pystore-scheme-h),
+      var(--pystore-scheme-s),
+      var(--pystore-scheme-invert-l),
+      0.05
+    );
+  --pystore-input-placeholder-color: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-strong-l),
+    0.3
+  );
+  --pystore-input-disabled-color: var(--pystore-text-weak);
+  --pystore-input-disabled-background-color: var(--pystore-background);
+  --pystore-input-disabled-border-color: var(--pystore-background);
+  --pystore-input-disabled-placeholder-color: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-weak-l),
+    0.3
+  );
+  --pystore-input-arrow: var(--pystore-link);
+  --pystore-input-icon-color: var(--pystore-text-light);
+  --pystore-input-icon-hover-color: var(--pystore-text-weak);
+  --pystore-input-icon-focus-color: var(--pystore-link);
+  --pystore-input-radius: var(--pystore-radius);
+}
+.input,
+.select select,
+.textarea {
+  background-color: hsl(
+    var(--pystore-input-h),
+    var(--pystore-input-s),
+    calc(
+      var(--pystore-input-background-l) +
+        var(--pystore-input-background-l-delta)
+    )
+  );
+  border-color: hsl(
+    var(--pystore-input-h),
+    var(--pystore-input-s),
+    calc(var(--pystore-input-border-l) + var(--pystore-input-border-l-delta))
+  );
+  border-radius: var(--pystore-input-radius);
+  color: hsl(
+    var(--pystore-input-h),
+    var(--pystore-input-s),
+    var(--pystore-input-color-l)
+  );
+}
+.input::-moz-placeholder,
+.select select::-moz-placeholder,
+.textarea::-moz-placeholder {
+  color: var(--pystore-input-placeholder-color);
+}
+.input::-webkit-input-placeholder,
+.select select::-webkit-input-placeholder,
+.textarea::-webkit-input-placeholder {
+  color: var(--pystore-input-placeholder-color);
+}
+.input:-moz-placeholder,
+.select select:-moz-placeholder,
+.textarea:-moz-placeholder {
+  color: var(--pystore-input-placeholder-color);
+}
+.input:-ms-input-placeholder,
+.select select:-ms-input-placeholder,
+.textarea:-ms-input-placeholder {
+  color: var(--pystore-input-placeholder-color);
+}
+.input:hover,
+.select select:hover,
+.textarea:hover {
+  --pystore-input-border-l-delta: var(--pystore-input-hover-border-l-delta);
+}
+.input:active,
+.is-active.input,
+.is-active.textarea,
+.select select.is-active,
+.select select:active,
+.textarea:active {
+  --pystore-input-border-l-delta: var(--pystore-input-active-border-l-delta);
+}
+.input:focus,
+.input:focus-within,
+.select select:focus,
+.select select:focus-within,
+.textarea:focus,
+.textarea:focus-within {
+  border-color: hsl(
+    var(--pystore-input-focus-h),
+    var(--pystore-input-focus-s),
+    var(--pystore-input-focus-l)
+  );
+  box-shadow: var(--pystore-input-focus-shadow-size)
+    hsla(
+      var(--pystore-input-focus-h),
+      var(--pystore-input-focus-s),
+      var(--pystore-input-focus-l),
+      var(--pystore-input-focus-shadow-alpha)
+    );
+}
+.select fieldset[disabled] select,
+.select select[disabled],
+[disabled].input,
+[disabled].textarea,
+fieldset[disabled] .input,
+fieldset[disabled] .select select,
+fieldset[disabled] .textarea {
+  background-color: var(--pystore-input-disabled-background-color);
+  border-color: var(--pystore-input-disabled-border-color);
+  box-shadow: none;
+  color: var(--pystore-input-disabled-color);
+}
+.select fieldset[disabled] select::-moz-placeholder,
+.select select[disabled]::-moz-placeholder,
+[disabled].input::-moz-placeholder,
+[disabled].textarea::-moz-placeholder,
+fieldset[disabled] .input::-moz-placeholder,
+fieldset[disabled] .select select::-moz-placeholder,
+fieldset[disabled] .textarea::-moz-placeholder {
+  color: var(--pystore-input-disabled-placeholder-color);
+}
+.select fieldset[disabled] select::-webkit-input-placeholder,
+.select select[disabled]::-webkit-input-placeholder,
+[disabled].input::-webkit-input-placeholder,
+[disabled].textarea::-webkit-input-placeholder,
+fieldset[disabled] .input::-webkit-input-placeholder,
+fieldset[disabled] .select select::-webkit-input-placeholder,
+fieldset[disabled] .textarea::-webkit-input-placeholder {
+  color: var(--pystore-input-disabled-placeholder-color);
+}
+.select fieldset[disabled] select:-moz-placeholder,
+.select select[disabled]:-moz-placeholder,
+[disabled].input:-moz-placeholder,
+[disabled].textarea:-moz-placeholder,
+fieldset[disabled] .input:-moz-placeholder,
+fieldset[disabled] .select select:-moz-placeholder,
+fieldset[disabled] .textarea:-moz-placeholder {
+  color: var(--pystore-input-disabled-placeholder-color);
+}
+.select fieldset[disabled] select:-ms-input-placeholder,
+.select select[disabled]:-ms-input-placeholder,
+[disabled].input:-ms-input-placeholder,
+[disabled].textarea:-ms-input-placeholder,
+fieldset[disabled] .input:-ms-input-placeholder,
+fieldset[disabled] .select select:-ms-input-placeholder,
+fieldset[disabled] .textarea:-ms-input-placeholder {
+  color: var(--pystore-input-disabled-placeholder-color);
+}
+.input,
+.textarea {
+  --pystore-input-h: var(--pystore-scheme-h);
+  --pystore-input-s: var(--pystore-scheme-s);
+  --pystore-input-border-style: solid;
+  --pystore-input-border-width: 1px;
+  --pystore-input-border-l: var(--pystore-border-l);
+  box-shadow: inset 0 0.0625em 0.125em
+    hsla(
+      var(--pystore-scheme-h),
+      var(--pystore-scheme-s),
+      var(--pystore-scheme-invert-l),
+      0.05
+    );
+  max-width: 100%;
+  width: 100%;
+}
+[readonly].input,
+[readonly].textarea {
+  box-shadow: none;
+}
+.is-light.input,
+.is-light.textarea {
+  --pystore-input-h: var(--pystore-light-h);
+  --pystore-input-s: var(--pystore-light-s);
+  --pystore-input-l: var(--pystore-light-l);
+  --pystore-input-focus-h: var(--pystore-light-h);
+  --pystore-input-focus-s: var(--pystore-light-s);
+  --pystore-input-focus-l: var(--pystore-light-l);
+  --pystore-input-border-l: var(--pystore-light-l);
+}
+.is-primary.input,
+.is-primary.textarea {
+  --pystore-input-h: var(--pystore-primary-h);
+  --pystore-input-s: var(--pystore-primary-s);
+  --pystore-input-l: var(--pystore-primary-l);
+  --pystore-input-focus-h: var(--pystore-primary-h);
+  --pystore-input-focus-s: var(--pystore-primary-s);
+  --pystore-input-focus-l: var(--pystore-primary-l);
+  --pystore-input-border-l: var(--pystore-primary-l);
+}
+.is-link.input,
+.is-link.textarea {
+  --pystore-input-h: var(--pystore-link-h);
+  --pystore-input-s: var(--pystore-link-s);
+  --pystore-input-l: var(--pystore-link-l);
+  --pystore-input-focus-h: var(--pystore-link-h);
+  --pystore-input-focus-s: var(--pystore-link-s);
+  --pystore-input-focus-l: var(--pystore-link-l);
+  --pystore-input-border-l: var(--pystore-link-l);
+}
+.is-success.input,
+.is-success.textarea {
+  --pystore-input-h: var(--pystore-success-h);
+  --pystore-input-s: var(--pystore-success-s);
+  --pystore-input-l: var(--pystore-success-l);
+  --pystore-input-focus-h: var(--pystore-success-h);
+  --pystore-input-focus-s: var(--pystore-success-s);
+  --pystore-input-focus-l: var(--pystore-success-l);
+  --pystore-input-border-l: var(--pystore-success-l);
+}
+.is-danger.input,
+.is-danger.textarea {
+  --pystore-input-h: var(--pystore-danger-h);
+  --pystore-input-s: var(--pystore-danger-s);
+  --pystore-input-l: var(--pystore-danger-l);
+  --pystore-input-focus-h: var(--pystore-danger-h);
+  --pystore-input-focus-s: var(--pystore-danger-s);
+  --pystore-input-focus-l: var(--pystore-danger-l);
+  --pystore-input-border-l: var(--pystore-danger-l);
+}
+.is-small.input,
+.is-small.textarea {
+  border-radius: var(--pystore-radius-small);
+  font-size: var(--pystore-size-small);
+}
+.is-large.input,
+.is-large.textarea {
+  font-size: var(--pystore-size-large);
+}
+.input.is-rounded {
+  border-radius: var(--pystore-radius-rounded);
+  padding-left: calc(1.125em - 1px);
+  padding-right: calc(1.125em - 1px);
+}
+.textarea {
+  --pystore-textarea-padding: var(--pystore-control-padding-horizontal);
+  --pystore-textarea-max-height: 40em;
+  --pystore-textarea-min-height: 8em;
+  display: block;
+  max-width: 100%;
+  min-width: 100%;
+  padding: var(--pystore-textarea-padding);
+  resize: vertical;
+}
+.textarea:not([rows]) {
+  max-height: var(--pystore-textarea-max-height);
+  min-height: var(--pystore-textarea-min-height);
+}
+.textarea[rows] {
+  height: auto;
+}
+.checkbox,
+.radio {
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1.25;
+  position: relative;
+}
+.checkbox input,
+.radio input {
+  cursor: pointer;
+}
+.checkbox input[disabled],
+.radio input[disabled],
+[disabled].checkbox,
+[disabled].radio,
+fieldset[disabled] .checkbox,
+fieldset[disabled] .radio {
+  color: var(--pystore-text-weak);
+  cursor: not-allowed;
+}
+.radio + .radio {
+  margin-inline-start: 0.5em;
+}
+.select {
+  --pystore-input-h: var(--pystore-scheme-h);
+  --pystore-input-s: var(--pystore-scheme-s);
+  --pystore-input-border-style: solid;
+  --pystore-input-border-width: 1px;
+  --pystore-input-border-l: var(--pystore-border-l);
+  display: inline-block;
+  max-width: 100%;
+  position: relative;
+  vertical-align: top;
+}
+.select:not(.is-multiple) {
+  height: var(--pystore-control-height);
+}
+.select:not(.is-multiple):not(.is-loading):after {
+  inset-inline-end: 1.125em;
+  z-index: 4;
+}
+.select.is-rounded select {
+  border-radius: var(--pystore-radius-rounded);
+  padding-inline-start: 1em;
+}
+.select select {
+  cursor: pointer;
+  display: block;
+  font-size: 1em;
+  max-width: 100%;
+  outline: none;
+}
+.select select::-ms-expand {
+  display: none;
+}
+.select select[disabled]:hover,
+fieldset[disabled] .select select:hover {
+  border-color: var(--pystore-background);
+}
+.select select:not([multiple]) {
+  padding-inline-end: 2.5em;
+}
+.select select[multiple] {
+  height: auto;
+  padding: 0;
+}
+.select select[multiple] option {
+  padding: 0.5em 1em;
+}
+.select.is-light {
+  --pystore-input-h: var(--pystore-light-h);
+  --pystore-input-s: var(--pystore-light-s);
+  --pystore-input-l: var(--pystore-light-l);
+  --pystore-input-focus-h: var(--pystore-light-h);
+  --pystore-input-focus-s: var(--pystore-light-s);
+  --pystore-input-focus-l: var(--pystore-light-l);
+  --pystore-input-border-l: var(--pystore-light-l);
+}
+.select.is-primary {
+  --pystore-input-h: var(--pystore-primary-h);
+  --pystore-input-s: var(--pystore-primary-s);
+  --pystore-input-l: var(--pystore-primary-l);
+  --pystore-input-focus-h: var(--pystore-primary-h);
+  --pystore-input-focus-s: var(--pystore-primary-s);
+  --pystore-input-focus-l: var(--pystore-primary-l);
+  --pystore-input-border-l: var(--pystore-primary-l);
+}
+.select.is-link {
+  --pystore-input-h: var(--pystore-link-h);
+  --pystore-input-s: var(--pystore-link-s);
+  --pystore-input-l: var(--pystore-link-l);
+  --pystore-input-focus-h: var(--pystore-link-h);
+  --pystore-input-focus-s: var(--pystore-link-s);
+  --pystore-input-focus-l: var(--pystore-link-l);
+  --pystore-input-border-l: var(--pystore-link-l);
+}
+.select.is-success {
+  --pystore-input-h: var(--pystore-success-h);
+  --pystore-input-s: var(--pystore-success-s);
+  --pystore-input-l: var(--pystore-success-l);
+  --pystore-input-focus-h: var(--pystore-success-h);
+  --pystore-input-focus-s: var(--pystore-success-s);
+  --pystore-input-focus-l: var(--pystore-success-l);
+  --pystore-input-border-l: var(--pystore-success-l);
+}
+.select.is-danger {
+  --pystore-input-h: var(--pystore-danger-h);
+  --pystore-input-s: var(--pystore-danger-s);
+  --pystore-input-l: var(--pystore-danger-l);
+  --pystore-input-focus-h: var(--pystore-danger-h);
+  --pystore-input-focus-s: var(--pystore-danger-s);
+  --pystore-input-focus-l: var(--pystore-danger-l);
+  --pystore-input-border-l: var(--pystore-danger-l);
+}
+.select.is-small {
+  border-radius: var(--pystore-radius-small);
+  font-size: var(--pystore-size-small);
+}
+.select.is-large {
+  font-size: var(--pystore-size-large);
+}
+.file {
+  --pystore-file-radius: var(--pystore-radius);
+  --pystore-file-name-border-color: var(--pystore-border);
+  --pystore-file-name-border-style: solid;
+  --pystore-file-name-border-width: 1px 1px 1px 0;
+  --pystore-file-name-max-width: 16em;
+  --pystore-file-h: var(--pystore-scheme-h);
+  --pystore-file-s: var(--pystore-scheme-s);
+  --pystore-file-background-l: var(--pystore-scheme-main-ter-l);
+  --pystore-file-background-l-delta: 0%;
+  --pystore-file-hover-background-l-delta: -5%;
+  --pystore-file-active-background-l-delta: -10%;
+  --pystore-file-border-l: var(--pystore-border-l);
+  --pystore-file-border-l-delta: 0%;
+  --pystore-file-hover-border-l-delta: -10%;
+  --pystore-file-active-border-l-delta: -20%;
+  --pystore-file-cta-color-l: var(--pystore-text-strong-l);
+  --pystore-file-name-color-l: var(--pystore-text-strong-l);
+  --pystore-file-color-l-delta: 0%;
+  --pystore-file-hover-color-l-delta: -5%;
+  --pystore-file-active-color-l-delta: -10%;
+  align-items: stretch;
+  display: flex;
+  justify-content: flex-start;
+  position: relative;
+}
+.file.is-light {
+  --pystore-file-h: var(--pystore-light-h);
+  --pystore-file-s: var(--pystore-light-s);
+  --pystore-file-background-l: var(--pystore-light-l);
+  --pystore-file-border-l: var(--pystore-light-l);
+  --pystore-file-cta-color-l: var(--pystore-light-invert-l);
+  --pystore-file-name-color-l: var(--pystore-light-on-scheme-l);
+}
+.file.is-primary {
+  --pystore-file-h: var(--pystore-primary-h);
+  --pystore-file-s: var(--pystore-primary-s);
+  --pystore-file-background-l: var(--pystore-primary-l);
+  --pystore-file-border-l: var(--pystore-primary-l);
+  --pystore-file-cta-color-l: var(--pystore-primary-invert-l);
+  --pystore-file-name-color-l: var(--pystore-primary-on-scheme-l);
+}
+.file.is-link {
+  --pystore-file-h: var(--pystore-link-h);
+  --pystore-file-s: var(--pystore-link-s);
+  --pystore-file-background-l: var(--pystore-link-l);
+  --pystore-file-border-l: var(--pystore-link-l);
+  --pystore-file-cta-color-l: var(--pystore-link-invert-l);
+  --pystore-file-name-color-l: var(--pystore-link-on-scheme-l);
+}
+.file.is-success {
+  --pystore-file-h: var(--pystore-success-h);
+  --pystore-file-s: var(--pystore-success-s);
+  --pystore-file-background-l: var(--pystore-success-l);
+  --pystore-file-border-l: var(--pystore-success-l);
+  --pystore-file-cta-color-l: var(--pystore-success-invert-l);
+  --pystore-file-name-color-l: var(--pystore-success-on-scheme-l);
+}
+.file.is-danger {
+  --pystore-file-h: var(--pystore-danger-h);
+  --pystore-file-s: var(--pystore-danger-s);
+  --pystore-file-background-l: var(--pystore-danger-l);
+  --pystore-file-border-l: var(--pystore-danger-l);
+  --pystore-file-cta-color-l: var(--pystore-danger-invert-l);
+  --pystore-file-name-color-l: var(--pystore-danger-on-scheme-l);
+}
+.file.is-small {
+  font-size: var(--pystore-size-small);
+}
+.file.is-large {
+  font-size: var(--pystore-size-large);
+}
+.label {
+  color: var(--pystore-text-strong);
+  display: block;
+  font-size: var(--pystore-size-normal);
+  font-weight: var(--pystore-weight-semibold);
+}
+.label:not(:last-child) {
+  margin-bottom: 0.5em;
+}
+.label.is-small {
+  font-size: var(--pystore-size-small);
+}
+.label.is-large {
+  font-size: var(--pystore-size-large);
+}
+.help {
+  display: block;
+  font-size: var(--pystore-size-small);
+  margin-top: 0.25rem;
+}
+.help.is-light {
+  color: hsl(
+    var(--pystore-light-h),
+    var(--pystore-light-s),
+    var(--pystore-light-on-scheme-l)
+  );
+}
+.help.is-primary {
+  color: hsl(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-on-scheme-l)
+  );
+}
+.help.is-link {
+  color: hsl(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-on-scheme-l)
+  );
+}
+.help.is-success {
+  color: hsl(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-on-scheme-l)
+  );
+}
+.help.is-danger {
+  color: hsl(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-on-scheme-l)
+  );
+}
+.field {
+  --pystore-block-spacing: 0.75rem;
+}
+.field.is-grouped {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-start;
+}
+.field.is-grouped > .control {
+  flex-shrink: 0;
+}
+.control {
+  box-sizing: border-box;
+  clear: both;
+  font-size: var(--pystore-size-normal);
+  position: relative;
+  text-align: inherit;
+}
+.control.has-icons-left .input:hover ~ .icon,
+.control.has-icons-left .select:hover ~ .icon {
+  color: var(--pystore-input-icon-hover-color);
+}
+.control.has-icons-left .input:focus ~ .icon,
+.control.has-icons-left .select:focus ~ .icon {
+  color: var(--pystore-input-icon-focus-color);
+}
+.control.has-icons-left .input.is-small ~ .icon,
+.control.has-icons-left .select.is-small ~ .icon {
+  font-size: var(--pystore-size-small);
+}
+.control.has-icons-left .input.is-large ~ .icon,
+.control.has-icons-left .select.is-large ~ .icon {
+  font-size: var(--pystore-size-large);
+}
+.control.has-icons-left .icon {
+  color: var(--pystore-input-icon-color);
+  height: var(--pystore-input-height);
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: var(--pystore-input-height);
+  z-index: 4;
+}
+.control.has-icons-left .input,
+.control.has-icons-left .select select {
+  padding-left: var(--pystore-input-height);
+}
+.control.has-icons-left .icon.is-left {
+  left: 0;
+}
+.menu {
+  --pystore-menu-item-h: var(--pystore-scheme-h);
+  --pystore-menu-item-s: var(--pystore-scheme-s);
+  --pystore-menu-item-l: var(--pystore-scheme-main-l);
+  --pystore-menu-item-background-l: var(--pystore-scheme-main-l);
+  --pystore-menu-item-background-l-delta: 0%;
+  --pystore-menu-item-hover-background-l-delta: var(
+    --pystore-hover-background-l-delta
+  );
+  --pystore-menu-item-active-background-l-delta: var(
+    --pystore-active-background-l-delta
+  );
+  --pystore-menu-item-color-l: var(--pystore-text-l);
+  --pystore-menu-item-radius: var(--pystore-radius-small);
+  --pystore-menu-item-selected-h: var(--pystore-link-h);
+  --pystore-menu-item-selected-s: var(--pystore-link-s);
+  --pystore-menu-item-selected-l: var(--pystore-link-l);
+  --pystore-menu-item-selected-background-l: var(--pystore-link-l);
+  --pystore-menu-item-selected-color-l: var(--pystore-link-invert-l);
+  --pystore-menu-list-border-left: 1px solid var(--pystore-border);
+  --pystore-menu-list-line-height: 1.25;
+  --pystore-menu-list-link-padding: 0.5em 0.75em;
+  --pystore-menu-nested-list-margin: 0.75em;
+  --pystore-menu-nested-list-padding-left: 0.75em;
+  --pystore-menu-label-color: var(--pystore-text-weak);
+  --pystore-menu-label-font-size: 0.75em;
+  --pystore-menu-label-letter-spacing: 0.1em;
+  --pystore-menu-label-spacing: 1em;
+  font-size: var(--pystore-size-normal);
+}
+.menu.is-small {
+  font-size: var(--pystore-size-small);
+}
+.menu.is-large {
+  font-size: var(--pystore-size-large);
+}
+.message {
+  --pystore-message-border-l-delta: -20%;
+  --pystore-message-radius: var(--pystore-radius);
+  --pystore-message-header-weight: var(--pystore-weight-semibold);
+  --pystore-message-header-padding: 1em 1.25em;
+  --pystore-message-header-radius: var(--pystore-radius);
+  --pystore-message-body-border-width: 0 0 0 4px;
+  --pystore-message-body-color: var(--pystore-text);
+  --pystore-message-body-padding: 1.25em 1.5em;
+  --pystore-message-body-radius: var(--pystore-radius-small);
+  --pystore-message-body-pre-code-background-color: transparent;
+  --pystore-message-header-body-border-width: 0;
+  --pystore-message-h: var(--pystore-scheme-h);
+  --pystore-message-s: var(--pystore-scheme-s);
+  --pystore-message-background-l: var(--pystore-background-l);
+  --pystore-message-border-l: var(--pystore-border-l);
+  --pystore-message-border-style: solid;
+  --pystore-message-border-width: 0.25em;
+  --pystore-message-color-l: var(--pystore-text-l);
+  --pystore-message-header-background-l: var(--pystore-dark-l);
+  --pystore-message-header-color-l: var(--pystore-text-dark-invert-l);
+  border-radius: var(--pystore-message-radius);
+  color: hsl(
+    var(--pystore-message-h),
+    var(--pystore-message-s),
+    var(--pystore-message-color-l)
+  );
+  font-size: var(--pystore-size-normal);
+}
+.message strong {
+  color: currentColor;
+}
+.message a:not(.button):not(.tag):not(.dropdown-item) {
+  color: currentColor;
+  text-decoration: underline;
+}
+.message.is-small {
+  font-size: var(--pystore-size-small);
+}
+.message.is-large {
+  font-size: var(--pystore-size-large);
+}
+.message.is-light {
+  --pystore-message-h: var(--pystore-light-h);
+  --pystore-message-s: var(--pystore-light-s);
+  --pystore-message-border-l: calc(
+    var(--pystore-light-l) + var(--pystore-message-border-l-delta)
+  );
+  --pystore-message-color-l: var(--pystore-light-on-scheme-l);
+  --pystore-message-header-background-l: var(--pystore-light-l);
+  --pystore-message-header-color-l: var(--pystore-light-invert-l);
+}
+.message.is-primary {
+  --pystore-message-h: var(--pystore-primary-h);
+  --pystore-message-s: var(--pystore-primary-s);
+  --pystore-message-border-l: calc(
+    var(--pystore-primary-l) + var(--pystore-message-border-l-delta)
+  );
+  --pystore-message-color-l: var(--pystore-primary-on-scheme-l);
+  --pystore-message-header-background-l: var(--pystore-primary-l);
+  --pystore-message-header-color-l: var(--pystore-primary-invert-l);
+}
+.message.is-link {
+  --pystore-message-h: var(--pystore-link-h);
+  --pystore-message-s: var(--pystore-link-s);
+  --pystore-message-border-l: calc(
+    var(--pystore-link-l) + var(--pystore-message-border-l-delta)
+  );
+  --pystore-message-color-l: var(--pystore-link-on-scheme-l);
+  --pystore-message-header-background-l: var(--pystore-link-l);
+  --pystore-message-header-color-l: var(--pystore-link-invert-l);
+}
+.message.is-success {
+  --pystore-message-h: var(--pystore-success-h);
+  --pystore-message-s: var(--pystore-success-s);
+  --pystore-message-border-l: calc(
+    var(--pystore-success-l) + var(--pystore-message-border-l-delta)
+  );
+  --pystore-message-color-l: var(--pystore-success-on-scheme-l);
+  --pystore-message-header-background-l: var(--pystore-success-l);
+  --pystore-message-header-color-l: var(--pystore-success-invert-l);
+}
+.message.is-danger {
+  --pystore-message-h: var(--pystore-danger-h);
+  --pystore-message-s: var(--pystore-danger-s);
+  --pystore-message-border-l: calc(
+    var(--pystore-danger-l) + var(--pystore-message-border-l-delta)
+  );
+  --pystore-message-color-l: var(--pystore-danger-on-scheme-l);
+  --pystore-message-header-background-l: var(--pystore-danger-l);
+  --pystore-message-header-color-l: var(--pystore-danger-invert-l);
+}
+:root {
+  --pystore-navbar-height: 3.25rem;
+}
+.navbar {
+  --pystore-navbar-h: var(--pystore-scheme-h);
+  --pystore-navbar-s: var(--pystore-scheme-s);
+  --pystore-navbar-l: var(--pystore-scheme-main-l);
+  --pystore-navbar-background-color: var(--pystore-scheme-main);
+  --pystore-navbar-box-shadow-size: 0 0.125em 0 0;
+  --pystore-navbar-box-shadow-color: var(--pystore-background);
+  --pystore-navbar-padding-vertical: 1rem;
+  --pystore-navbar-padding-horizontal: 2rem;
+  --pystore-navbar-z: 30;
+  --pystore-navbar-fixed-z: 30;
+  --pystore-navbar-item-background-a: 0;
+  --pystore-navbar-item-background-l: var(--pystore-scheme-main-l);
+  --pystore-navbar-item-background-l-delta: 0%;
+  --pystore-navbar-item-hover-background-l-delta: var(
+    --pystore-hover-background-l-delta
+  );
+  --pystore-navbar-item-active-background-l-delta: var(
+    --pystore-active-background-l-delta
+  );
+  --pystore-navbar-item-color-l: var(--pystore-text-l);
+  --pystore-navbar-item-selected-h: var(--pystore-link-h);
+  --pystore-navbar-item-selected-s: var(--pystore-link-s);
+  --pystore-navbar-item-selected-l: var(--pystore-link-l);
+  --pystore-navbar-item-selected-background-l: var(--pystore-link-l);
+  --pystore-navbar-item-selected-color-l: var(--pystore-link-invert-l);
+  --pystore-navbar-item-img-max-height: 1.75rem;
+  --pystore-navbar-burger-color: var(--pystore-navbar-item-color);
+  --pystore-navbar-tab-hover-background-color: transparent;
+  --pystore-navbar-tab-hover-border-bottom-color: var(--pystore-link);
+  --pystore-navbar-tab-active-color: var(--pystore-link);
+  --pystore-navbar-tab-active-background-color: transparent;
+  --pystore-navbar-tab-active-border-bottom-color: var(--pystore-link);
+  --pystore-navbar-tab-active-border-bottom-style: solid;
+  --pystore-navbar-tab-active-border-bottom-width: 0.1875em;
+  --pystore-navbar-dropdown-background-color: var(--pystore-scheme-main);
+  --pystore-navbar-dropdown-border-l: var(--pystore-border-l);
+  --pystore-navbar-dropdown-border-color: hsl(
+    var(--pystore-navbar-h),
+    var(--pystore-navbar-s),
+    var(--pystore-navbar-dropdown-border-l)
+  );
+  --pystore-navbar-dropdown-border-style: solid;
+  --pystore-navbar-dropdown-border-width: 0.125em;
+  --pystore-navbar-dropdown-offset: -0.25em;
+  --pystore-navbar-dropdown-arrow: var(--pystore-link);
+  --pystore-navbar-dropdown-radius: var(--pystore-radius-large);
+  --pystore-navbar-dropdown-z: 20;
+  --pystore-navbar-dropdown-boxed-radius: var(--pystore-radius-large);
+  --pystore-navbar-dropdown-boxed-shadow: 0 0.5em 0.5em
+      hsla(
+        var(--pystore-scheme-h),
+        var(--pystore-scheme-s),
+        var(--pystore-scheme-invert-l),
+        0.1
+      ),
+    0 0 0 1px
+      hsla(
+        var(--pystore-scheme-h),
+        var(--pystore-scheme-s),
+        var(--pystore-scheme-invert-l),
+        0.1
+      );
+  --pystore-navbar-dropdown-item-h: var(--pystore-scheme-h);
+  --pystore-navbar-dropdown-item-s: var(--pystore-scheme-s);
+  --pystore-navbar-dropdown-item-l: var(--pystore-scheme-main-l);
+  --pystore-navbar-dropdown-item-background-l: var(--pystore-scheme-main-l);
+  --pystore-navbar-dropdown-item-color-l: var(--pystore-text-l);
+  --pystore-navbar-divider-background-l: var(--pystore-background-l);
+  --pystore-navbar-divider-height: 0.125em;
+  --pystore-navbar-bottom-box-shadow-size: 0 -0.125em 0 0;
+  background-color: var(--pystore-navbar-background-color);
+  min-height: var(--pystore-navbar-height);
+  position: relative;
+  z-index: var(--pystore-navbar-z);
+}
+.navbar.is-light {
+  --pystore-navbar-h: var(--pystore-light-h);
+  --pystore-navbar-s: var(--pystore-light-s);
+  --pystore-navbar-l: var(--pystore-light-l);
+  --pystore-burger-h: var(--pystore-light-h);
+  --pystore-burger-s: var(--pystore-light-s);
+  --pystore-burger-l: var(--pystore-light-invert-l);
+  --pystore-navbar-background-color: var(--pystore-light);
+  --pystore-navbar-item-background-l: var(--pystore-light-l);
+  --pystore-navbar-item-color-l: var(--pystore-light-invert-l);
+  --pystore-navbar-item-selected-h: var(--pystore-light-h);
+  --pystore-navbar-item-selected-s: var(--pystore-light-s);
+  --pystore-navbar-item-selected-l: var(--pystore-light-l);
+  --pystore-navbar-item-selected-background-l: var(--pystore-light-l);
+  --pystore-navbar-item-selected-color-l: var(--pystore-light-invert-l);
+  --pystore-navbar-dropdown-arrow: var(--pystore-light-invert-l);
+  --pystore-navbar-dropdown-background-color: hsl(
+    var(--pystore-light-h),
+    var(--pystore-light-s),
+    var(--pystore-navbar-dropdown-item-background-l)
+  );
+  --pystore-navbar-dropdown-item-h: var(--pystore-light-h);
+  --pystore-navbar-dropdown-item-s: var(--pystore-light-s);
+}
+.navbar.is-primary {
+  --pystore-navbar-h: var(--pystore-primary-h);
+  --pystore-navbar-s: var(--pystore-primary-s);
+  --pystore-navbar-l: var(--pystore-primary-l);
+  --pystore-burger-h: var(--pystore-primary-h);
+  --pystore-burger-s: var(--pystore-primary-s);
+  --pystore-burger-l: var(--pystore-primary-invert-l);
+  --pystore-navbar-background-color: var(--pystore-primary);
+  --pystore-navbar-item-background-l: var(--pystore-primary-l);
+  --pystore-navbar-item-color-l: var(--pystore-primary-invert-l);
+  --pystore-navbar-item-selected-h: var(--pystore-primary-h);
+  --pystore-navbar-item-selected-s: var(--pystore-primary-s);
+  --pystore-navbar-item-selected-l: var(--pystore-primary-l);
+  --pystore-navbar-item-selected-background-l: var(--pystore-primary-l);
+  --pystore-navbar-item-selected-color-l: var(--pystore-primary-invert-l);
+  --pystore-navbar-dropdown-arrow: var(--pystore-primary-invert-l);
+  --pystore-navbar-dropdown-background-color: hsl(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-navbar-dropdown-item-background-l)
+  );
+  --pystore-navbar-dropdown-item-h: var(--pystore-primary-h);
+  --pystore-navbar-dropdown-item-s: var(--pystore-primary-s);
+}
+.navbar.is-link {
+  --pystore-navbar-h: var(--pystore-link-h);
+  --pystore-navbar-s: var(--pystore-link-s);
+  --pystore-navbar-l: var(--pystore-link-l);
+  --pystore-burger-h: var(--pystore-link-h);
+  --pystore-burger-s: var(--pystore-link-s);
+  --pystore-burger-l: var(--pystore-link-invert-l);
+  --pystore-navbar-background-color: var(--pystore-link);
+  --pystore-navbar-item-background-l: var(--pystore-link-l);
+  --pystore-navbar-item-color-l: var(--pystore-link-invert-l);
+  --pystore-navbar-item-selected-h: var(--pystore-link-h);
+  --pystore-navbar-item-selected-s: var(--pystore-link-s);
+  --pystore-navbar-item-selected-l: var(--pystore-link-l);
+  --pystore-navbar-item-selected-background-l: var(--pystore-link-l);
+  --pystore-navbar-item-selected-color-l: var(--pystore-link-invert-l);
+  --pystore-navbar-dropdown-arrow: var(--pystore-link-invert-l);
+  --pystore-navbar-dropdown-background-color: hsl(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-navbar-dropdown-item-background-l)
+  );
+  --pystore-navbar-dropdown-item-h: var(--pystore-link-h);
+  --pystore-navbar-dropdown-item-s: var(--pystore-link-s);
+}
+.navbar.is-success {
+  --pystore-navbar-h: var(--pystore-success-h);
+  --pystore-navbar-s: var(--pystore-success-s);
+  --pystore-navbar-l: var(--pystore-success-l);
+  --pystore-burger-h: var(--pystore-success-h);
+  --pystore-burger-s: var(--pystore-success-s);
+  --pystore-burger-l: var(--pystore-success-invert-l);
+  --pystore-navbar-background-color: var(--pystore-success);
+  --pystore-navbar-item-background-l: var(--pystore-success-l);
+  --pystore-navbar-item-color-l: var(--pystore-success-invert-l);
+  --pystore-navbar-item-selected-h: var(--pystore-success-h);
+  --pystore-navbar-item-selected-s: var(--pystore-success-s);
+  --pystore-navbar-item-selected-l: var(--pystore-success-l);
+  --pystore-navbar-item-selected-background-l: var(--pystore-success-l);
+  --pystore-navbar-item-selected-color-l: var(--pystore-success-invert-l);
+  --pystore-navbar-dropdown-arrow: var(--pystore-success-invert-l);
+  --pystore-navbar-dropdown-background-color: hsl(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-navbar-dropdown-item-background-l)
+  );
+  --pystore-navbar-dropdown-item-h: var(--pystore-success-h);
+  --pystore-navbar-dropdown-item-s: var(--pystore-success-s);
+}
+.navbar.is-danger {
+  --pystore-navbar-h: var(--pystore-danger-h);
+  --pystore-navbar-s: var(--pystore-danger-s);
+  --pystore-navbar-l: var(--pystore-danger-l);
+  --pystore-burger-h: var(--pystore-danger-h);
+  --pystore-burger-s: var(--pystore-danger-s);
+  --pystore-burger-l: var(--pystore-danger-invert-l);
+  --pystore-navbar-background-color: var(--pystore-danger);
+  --pystore-navbar-item-background-l: var(--pystore-danger-l);
+  --pystore-navbar-item-color-l: var(--pystore-danger-invert-l);
+  --pystore-navbar-item-selected-h: var(--pystore-danger-h);
+  --pystore-navbar-item-selected-s: var(--pystore-danger-s);
+  --pystore-navbar-item-selected-l: var(--pystore-danger-l);
+  --pystore-navbar-item-selected-background-l: var(--pystore-danger-l);
+  --pystore-navbar-item-selected-color-l: var(--pystore-danger-invert-l);
+  --pystore-navbar-dropdown-arrow: var(--pystore-danger-invert-l);
+  --pystore-navbar-dropdown-background-color: hsl(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-navbar-dropdown-item-background-l)
+  );
+  --pystore-navbar-dropdown-item-h: var(--pystore-danger-h);
+  --pystore-navbar-dropdown-item-s: var(--pystore-danger-s);
+}
+.navbar > .container {
+  align-items: stretch;
+  display: flex;
+  min-height: var(--pystore-navbar-height);
+  width: 100%;
+}
+
+.navbar.is-fixed-top {
+  left: 0;
+  position: fixed;
+  right: 0;
+  z-index: var(--pystore-navbar-fixed-z);
+}
+.navbar.is-fixed-top {
+  top: 0;
+}
+.navbar-brand {
+  align-items: stretch;
+  display: flex;
+  flex-shrink: 0;
+  min-height: var(--pystore-navbar-height);
+}
+.navbar-burger {
+  align-items: center;
+  align-self: center;
+  appearance: none;
+  background: none;
+  border: none;
+  border-radius: var(--pystore-burger-border-radius);
+  color: hsl(
+    var(--pystore-burger-h),
+    var(--pystore-burger-s),
+    var(--pystore-burger-l)
+  );
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  height: 2.5rem;
+  justify-content: center;
+  margin-inline-end: 0.375rem;
+  margin-inline-start: auto;
+  position: relative;
+  vertical-align: top;
+  width: 2.5rem;
+}
+.navbar-burger span {
+  background-color: currentColor;
+  display: block;
+  height: var(--pystore-burger-item-height);
+  left: calc(50% - (var(--pystore-burger-item-width)) / 2);
+  position: absolute;
+  transform-origin: center;
+  transition-duration: var(--pystore-duration);
+  transition-property: background-color, color, opacity, transform;
+  transition-timing-function: var(--pystore-easing);
+  width: var(--pystore-burger-item-width);
+}
+.navbar-burger span:first-child,
+.navbar-burger span:nth-child(2) {
+  top: calc(50% - (var(--pystore-burger-item-height)) / 2);
+}
+.navbar-burger span:nth-child(3) {
+  bottom: calc(50% + var(--pystore-burger-gap));
+}
+.navbar-burger span:nth-child(4) {
+  top: calc(50% + var(--pystore-burger-gap));
+}
+.navbar-burger:hover {
+  background-color: hsla(
+    var(--pystore-burger-h),
+    var(--pystore-burger-s),
+    var(--pystore-burger-l),
+    0.1
+  );
+}
+.navbar-burger:active {
+  background-color: hsla(
+    var(--pystore-burger-h),
+    var(--pystore-burger-s),
+    var(--pystore-burger-l),
+    0.2
+  );
+}
+.navbar-burger.is-active span:first-child {
+  transform: rotate(-45deg);
+}
+.navbar-burger.is-active span:nth-child(2) {
+  transform: rotate(45deg);
+}
+.navbar-burger.is-active span:nth-child(3),
+.navbar-burger.is-active span:nth-child(4) {
+  opacity: 0;
+}
+.navbar-menu {
+  display: none;
+}
+.navbar-item,
+.navbar-link {
+  color: hsl(
+    var(--pystore-navbar-h),
+    var(--pystore-navbar-s),
+    var(--pystore-navbar-item-color-l)
+  );
+  display: block;
+  line-height: 1.5;
+  padding: 0.5rem 0.75rem;
+  position: relative;
+}
+.navbar-item .icon:only-child,
+.navbar-link .icon:only-child {
+  margin-left: -0.25rem;
+  margin-right: -0.25rem;
+}
+.navbar-link,
+a.navbar-item {
+  background-color: hsla(
+    var(--pystore-navbar-h),
+    var(--pystore-navbar-s),
+    calc(
+      var(--pystore-navbar-item-background-l) +
+        var(--pystore-navbar-item-background-l-delta)
+    ),
+    var(--pystore-navbar-item-background-a)
+  );
+  cursor: pointer;
+}
+.navbar-link:focus,
+.navbar-link:focus-within,
+.navbar-link:hover,
+a.navbar-item:focus,
+a.navbar-item:focus-within,
+a.navbar-item:hover {
+  --pystore-navbar-item-background-l-delta: var(
+    --pystore-navbar-item-hover-background-l-delta
+  );
+  --pystore-navbar-item-background-a: 1;
+}
+.navbar-link:active,
+a.navbar-item:active {
+  --pystore-navbar-item-background-l-delta: var(
+    --pystore-navbar-item-active-background-l-delta
+  );
+  --pystore-navbar-item-background-a: 1;
+}
+.navbar-link.is-active,
+a.navbar-item.is-active {
+  --pystore-navbar-h: var(--pystore-navbar-item-selected-h);
+  --pystore-navbar-s: var(--pystore-navbar-item-selected-s);
+  --pystore-navbar-l: var(--pystore-navbar-item-selected-l);
+  --pystore-navbar-item-background-l: var(
+    --pystore-navbar-item-selected-background-l
+  );
+  --pystore-navbar-item-background-a: 1;
+  --pystore-navbar-item-color-l: var(--pystore-navbar-item-selected-color-l);
+}
+.navbar-item {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+.navbar-item img,
+.navbar-item svg {
+  max-height: var(--pystore-navbar-item-img-max-height);
+}
+.navbar-item.has-dropdown {
+  padding: 0;
+}
+.navbar-link:not(.is-arrowless) {
+  padding-inline-end: 2.5em;
+}
+.navbar-link:not(.is-arrowless):after {
+  border-color: var(--pystore-navbar-dropdown-arrow);
+  inset-inline-end: 1.125em;
+  margin-top: -0.375em;
+}
+.navbar-dropdown {
+  font-size: 0.875rem;
+  padding-bottom: 0.75rem;
+  padding-top: 0.5rem;
+}
+.navbar-dropdown .navbar-item {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+.navbar-dropdown .navbar-item:not(.is-active, .is-selected) {
+  background-color: hsl(
+    var(--pystore-navbar-dropdown-item-h),
+    var(--pystore-navbar-dropdown-item-s),
+    calc(
+      var(--pystore-navbar-dropdown-item-background-l) +
+        var(--pystore-navbar-item-background-l-delta)
+    )
+  );
+  color: hsl(
+    var(--pystore-navbar-dropdown-item-h),
+    var(--pystore-navbar-dropdown-item-s),
+    var(--pystore-navbar-dropdown-item-color-l)
+  );
+}
+@media screen and (max-width: 1023px) {
+  .navbar > .container {
+    display: block;
+  }
+  .navbar-brand .navbar-item {
+    align-items: center;
+    display: flex;
+  }
+  .navbar-link:after {
+    display: none;
+  }
+  .navbar-menu {
+    background-color: var(--pystore-navbar-background-color);
+    box-shadow: 0 0.5em 1em
+      hsla(
+        var(--pystore-scheme-h),
+        var(--pystore-scheme-s),
+        var(--pystore-scheme-invert-l),
+        0.1
+      );
+    padding: 0.5rem 0;
+  }
+  .navbar-menu.is-active {
+    display: block;
+  }
+  .navbar.is-fixed-top .navbar-menu {
+    -webkit-overflow-scrolling: touch;
+    max-height: calc(100vh - var(--pystore-navbar-height));
+    overflow: auto;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .navbar,
+  .navbar-end,
+  .navbar-menu,
+  .navbar-start {
+    align-items: stretch;
+    display: flex;
+  }
+  .navbar {
+    min-height: var(--pystore-navbar-height);
+  }
+  .navbar-burger {
+    display: none;
+  }
+  .navbar-item,
+  .navbar-link {
+    align-items: center;
+    display: flex;
+  }
+  .navbar-item.has-dropdown {
+    align-items: stretch;
+  }
+  .navbar-item.is-active .navbar-dropdown,
+  .navbar-item.is-hoverable:focus .navbar-dropdown,
+  .navbar-item.is-hoverable:focus-within .navbar-dropdown,
+  .navbar-item.is-hoverable:hover .navbar-dropdown {
+    display: block;
+  }
+  .navbar-menu {
+    flex-grow: 1;
+    flex-shrink: 0;
+  }
+  .navbar-start {
+    justify-content: flex-start;
+    margin-inline-end: auto;
+  }
+  .navbar-end {
+    justify-content: flex-end;
+    margin-inline-start: auto;
+  }
+  .navbar-dropdown {
+    background-color: var(--pystore-navbar-dropdown-background-color);
+    border-bottom-left-radius: var(--pystore-navbar-dropdown-radius);
+    border-bottom-right-radius: var(--pystore-navbar-dropdown-radius);
+    border-top: var(--pystore-navbar-dropdown-border-width)
+      var(--pystore-navbar-dropdown-border-style)
+      var(--pystore-navbar-dropdown-border-color);
+    box-shadow: 0 0.5em 0.5em
+      hsla(
+        var(--pystore-scheme-h),
+        var(--pystore-scheme-s),
+        var(--pystore-scheme-invert-l),
+        0.1
+      );
+    display: none;
+    font-size: 0.875rem;
+    inset-inline-start: 0;
+    min-width: 100%;
+    position: absolute;
+    top: 100%;
+    z-index: var(--pystore-navbar-dropdown-z);
+  }
+  .navbar-dropdown .navbar-item {
+    padding: 0.375rem 1rem;
+    white-space: nowrap;
+  }
+  .navbar-dropdown a.navbar-item {
+    padding-inline-end: 3rem;
+  }
+  .navbar-dropdown a.navbar-item:not(.is-active, .is-selected) {
+    background-color: hsl(
+      var(--pystore-navbar-dropdown-item-h),
+      var(--pystore-navbar-dropdown-item-s),
+      calc(
+        var(--pystore-navbar-dropdown-item-background-l) +
+          var(--pystore-navbar-item-background-l-delta)
+      )
+    );
+    color: hsl(
+      var(--pystore-navbar-dropdown-item-h),
+      var(--pystore-navbar-dropdown-item-s),
+      var(--pystore-navbar-dropdown-item-color-l)
+    );
+  }
+  .container > .navbar .navbar-brand,
+  .navbar > .container .navbar-brand {
+    margin-inline-start: -0.75rem;
+  }
+  .container > .navbar .navbar-menu,
+  .navbar > .container .navbar-menu {
+    margin-inline-end: -0.75rem;
+  }
+}
+.panel {
+  --pystore-panel-margin: var(--pystore-block-spacing);
+  --pystore-panel-item-border: 1px solid var(--pystore-border-weak);
+  --pystore-panel-radius: var(--pystore-radius-large);
+  --pystore-panel-shadow: var(--pystore-shadow);
+  --pystore-panel-heading-line-height: 1.25;
+  --pystore-panel-heading-padding: 1em 1.25em;
+  --pystore-panel-heading-radius: var(--pystore-radius);
+  --pystore-panel-heading-size: 1.25em;
+  --pystore-panel-heading-weight: var(--pystore-weight-bold);
+  --pystore-panel-tabs-font-size: 1em;
+  --pystore-panel-tab-border-bottom-color: var(--pystore-border);
+  --pystore-panel-tab-border-bottom-style: solid;
+  --pystore-panel-tab-border-bottom-width: 1px;
+  --pystore-panel-tab-active-color: var(--pystore-link-active);
+  --pystore-panel-list-item-color: var(--pystore-text);
+  --pystore-panel-list-item-hover-color: var(--pystore-link);
+  --pystore-panel-block-color: var(--pystore-text-strong);
+  --pystore-panel-block-hover-background-color: var(--pystore-background);
+  --pystore-panel-block-active-border-left-color: var(--pystore-link);
+  --pystore-panel-block-active-color: var(--pystore-link-active);
+  --pystore-panel-block-active-icon-color: var(--pystore-link);
+  --pystore-panel-icon-color: var(--pystore-text-weak);
+  --pystore-panel-h: var(--pystore-scheme-h);
+  --pystore-panel-s: var(--pystore-scheme-s);
+  --pystore-panel-color-l: var(--pystore-text-l);
+  --pystore-panel-heading-background-l: var(--pystore-text-l);
+  --pystore-panel-heading-color-l: var(--pystore-text-invert-l);
+  border-radius: var(--pystore-panel-radius);
+  box-shadow: var(--pystore-panel-shadow);
+  font-size: var(--pystore-size-normal);
+}
+.panel:not(:last-child) {
+  margin-bottom: var(--pystore-panel-margin);
+}
+.panel.is-light {
+  --pystore-panel-h: var(--pystore-light-h);
+  --pystore-panel-s: var(--pystore-light-s);
+  --pystore-panel-color-l: var(--pystore-light-l);
+  --pystore-panel-heading-background-l: var(--pystore-light-l);
+  --pystore-panel-heading-color-l: var(--pystore-light-invert-l);
+}
+.panel.is-primary {
+  --pystore-panel-h: var(--pystore-primary-h);
+  --pystore-panel-s: var(--pystore-primary-s);
+  --pystore-panel-color-l: var(--pystore-primary-l);
+  --pystore-panel-heading-background-l: var(--pystore-primary-l);
+  --pystore-panel-heading-color-l: var(--pystore-primary-invert-l);
+}
+.panel.is-link {
+  --pystore-panel-h: var(--pystore-link-h);
+  --pystore-panel-s: var(--pystore-link-s);
+  --pystore-panel-color-l: var(--pystore-link-l);
+  --pystore-panel-heading-background-l: var(--pystore-link-l);
+  --pystore-panel-heading-color-l: var(--pystore-link-invert-l);
+}
+.panel.is-success {
+  --pystore-panel-h: var(--pystore-success-h);
+  --pystore-panel-s: var(--pystore-success-s);
+  --pystore-panel-color-l: var(--pystore-success-l);
+  --pystore-panel-heading-background-l: var(--pystore-success-l);
+  --pystore-panel-heading-color-l: var(--pystore-success-invert-l);
+}
+.panel.is-danger {
+  --pystore-panel-h: var(--pystore-danger-h);
+  --pystore-panel-s: var(--pystore-danger-s);
+  --pystore-panel-color-l: var(--pystore-danger-l);
+  --pystore-panel-heading-background-l: var(--pystore-danger-l);
+  --pystore-panel-heading-color-l: var(--pystore-danger-invert-l);
+}
+.tabs {
+  --pystore-tabs-border-bottom-color: var(--pystore-border);
+  --pystore-tabs-border-bottom-style: solid;
+  --pystore-tabs-border-bottom-width: 1px;
+  --pystore-tabs-link-color: var(--pystore-text);
+  --pystore-tabs-link-hover-border-bottom-color: var(--pystore-text-strong);
+  --pystore-tabs-link-hover-color: var(--pystore-text-strong);
+  --pystore-tabs-link-active-border-bottom-color: var(--pystore-link-text);
+  --pystore-tabs-link-active-color: var(--pystore-link-text);
+  --pystore-tabs-link-padding: 0.5em 1em;
+  --pystore-tabs-boxed-link-radius: var(--pystore-radius);
+  --pystore-tabs-boxed-link-hover-background-color: var(--pystore-background);
+  --pystore-tabs-boxed-link-hover-border-bottom-color: var(--pystore-border);
+  --pystore-tabs-boxed-link-active-background-color: var(--pystore-scheme-main);
+  --pystore-tabs-boxed-link-active-border-color: var(--pystore-border);
+  --pystore-tabs-boxed-link-active-border-bottom-color: transparent;
+  --pystore-tabs-toggle-link-border-color: var(--pystore-border);
+  --pystore-tabs-toggle-link-border-style: solid;
+  --pystore-tabs-toggle-link-border-width: 1px;
+  --pystore-tabs-toggle-link-hover-background-color: var(--pystore-background);
+  --pystore-tabs-toggle-link-hover-border-color: var(--pystore-border-hover);
+  --pystore-tabs-toggle-link-radius: var(--pystore-radius);
+  --pystore-tabs-toggle-link-active-background-color: var(--pystore-link);
+  --pystore-tabs-toggle-link-active-border-color: var(--pystore-link);
+  --pystore-tabs-toggle-link-active-color: var(--pystore-link-invert);
+  -webkit-overflow-scrolling: touch;
+  align-items: stretch;
+  display: flex;
+  font-size: var(--pystore-size-normal);
+  justify-content: space-between;
+  overflow: hidden;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.tabs a {
+  align-items: center;
+  border-bottom: var(--pystore-tabs-border-bottom-width)
+    var(--pystore-tabs-border-bottom-style)
+    var(--pystore-tabs-border-bottom-color);
+  color: var(--pystore-tabs-link-color);
+  display: flex;
+  justify-content: center;
+  margin-bottom: calc(var(--pystore-tabs-border-bottom-width) * -1);
+  padding: var(--pystore-tabs-link-padding);
+  transition-duration: var(--pystore-duration);
+  transition-property: background-color, border-color, color;
+  vertical-align: top;
+}
+.tabs a:hover {
+  border-bottom-color: var(--pystore-tabs-link-hover-border-bottom-color);
+  color: var(--pystore-tabs-link-hover-color);
+}
+.tabs li {
+  display: block;
+}
+.tabs li.is-active a {
+  border-bottom-color: var(--pystore-tabs-link-active-border-bottom-color);
+  color: var(--pystore-tabs-link-active-color);
+}
+.tabs ul {
+  align-items: center;
+  border-bottom: var(--pystore-tabs-border-bottom-width)
+    var(--pystore-tabs-border-bottom-style)
+    var(--pystore-tabs-border-bottom-color);
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  justify-content: flex-start;
+}
+
+.tabs ul.is-left {
+  padding-right: 0.75em;
+}
+.tabs .icon:first-child {
+  margin-inline-end: 0.5em;
+}
+.tabs .icon:last-child {
+  margin-inline-start: 0.5em;
+}
+.tabs.is-small {
+  font-size: var(--pystore-size-small);
+}
+.tabs.is-large {
+  font-size: var(--pystore-size-large);
+}
+:root {
+  --pystore-column-gap: 0.75rem;
+}
+.column {
+  display: block;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: 0.75rem;
+}
+@media print, screen and (min-width: 769px) {
+  .column.is-5 {
+    flex: none;
+    width: calc(41.66667% - var(--pystore-column-gap) / 2);
+  }
+  .column.is-6 {
+    flex: none;
+    width: calc(50% - var(--pystore-column-gap) / 2);
+  }
+}
+.columns {
+  margin-inline-end: calc(var(--pystore-column-gap) * -1);
+  margin-inline-start: calc(var(--pystore-column-gap) * -1);
+  margin-top: calc(var(--pystore-column-gap) * -1);
+}
+.columns:last-child {
+  margin-bottom: calc(var(--pystore-column-gap) * -1);
+}
+.columns:not(:last-child) {
+  margin-bottom: 0.75rem;
+}
+@media print, screen and (min-width: 769px) {
+  .columns:not(.is-desktop) {
+    display: flex;
+  }
+}
+.fixed-grid {
+  container-name: pystore-fixed-grid;
+  container-type: inline-size;
+}
+.fixed-grid .grid {
+  --pystore-grid-gap-count: calc(var(--pystore-grid-column-count) - 1);
+  --pystore-grid-column-count: 2;
+  grid-template-columns: repeat(var(--pystore-grid-column-count), 1fr);
+}
+@container pystore-fixed-grid (max-width: 768px) {
+  .fixed-grid.has-1-cols-mobile .grid {
+    --pystore-grid-column-count: 1;
+  }
+}
+@container pystore-fixed-grid (min-width: 769px) {
+  .fixed-grid.has-2-cols-tablet .grid {
+    --pystore-grid-column-count: 2;
+  }
+}
+@container pystore-fixed-grid (min-width: 1024px) {
+  .fixed-grid.has-2-cols-desktop .grid {
+    --pystore-grid-column-count: 2;
+  }
+  .fixed-grid.has-3-cols-desktop .grid {
+    --pystore-grid-column-count: 3;
+  }
+  .fixed-grid.has-4-cols-desktop .grid {
+    --pystore-grid-column-count: 4;
+  }
+}
+.grid {
+  --pystore-grid-gap: 0.75rem;
+  --pystore-grid-column-min: 9rem;
+  --pystore-grid-cell-column-span: 1;
+  --pystore-grid-cell-row-span: 1;
+  column-gap: var(--pystore-grid-column-gap, var(--pystore-grid-gap));
+  display: grid;
+  gap: var(--pystore-grid-gap);
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(var(--pystore-grid-column-min), 1fr)
+  );
+  grid-template-rows: auto;
+  row-gap: var(--pystore-grid-row-gap, var(--pystore-grid-gap));
+}
+.cell {
+  grid-column-end: span var(--pystore-grid-cell-column-span);
+  grid-column-start: var(--pystore-grid-cell-column-start);
+  grid-row-end: span var(--pystore-grid-cell-row-span);
+  grid-row-start: var(--pystore-grid-cell-row-start);
+}
+.container {
+  flex-grow: 1;
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+}
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media screen and (min-width: 1216px) {
+  .container:not(.is-max-desktop) {
+    max-width: 1152px;
+  }
+}
+@media screen and (min-width: 1408px) {
+  .container:not(.is-max-desktop):not(.is-max-widescreen) {
+    max-width: 1344px;
+  }
+}
+.footer {
+  --pystore-footer-background-color: var(--pystore-scheme-main-bis);
+  --pystore-footer-color: false;
+  --pystore-footer-padding: 3rem 1.5rem 6rem;
+  background-color: var(--pystore-footer-background-color);
+  padding: var(--pystore-footer-padding);
+}
+.level {
+  --pystore-level-item-spacing: calc(var(--pystore-block-spacing) * 0.5);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--pystore-level-item-spacing);
+  justify-content: space-between;
+}
+.level code {
+  border-radius: var(--pystore-radius);
+}
+.level img {
+  display: inline-block;
+  vertical-align: top;
+}
+@media print, screen and (min-width: 769px) {
+  .level {
+    display: flex;
+    flex-direction: row;
+  }
+}
+.media {
+  --pystore-media-border-color: hsla(
+    var(--pystore-scheme-h),
+    var(--pystore-scheme-s),
+    var(--pystore-border-l),
+    0.5
+  );
+  --pystore-media-border-size: 1px;
+  --pystore-media-spacing: 1rem;
+  --pystore-media-spacing-large: 1.5rem;
+  --pystore-media-content-spacing: 0.75rem;
+  --pystore-media-level-1-spacing: 0.75rem;
+  --pystore-media-level-1-content-spacing: 0.5rem;
+  --pystore-media-level-2-spacing: 0.5rem;
+  align-items: flex-start;
+  display: flex;
+  text-align: inherit;
+}
+.media .content:not(:last-child) {
+  margin-bottom: var(--pystore-media-content-spacing);
+}
+.media .media {
+  border-top: var(--pystore-media-border-size) solid
+    var(--pystore-media-border-color);
+  display: flex;
+  padding-top: var(--pystore-media-level-1-spacing);
+}
+.media .media .content:not(:last-child),
+.media .media .control:not(:last-child) {
+  margin-bottom: var(--pystore-media-level-1-content-spacing);
+}
+.media .media .media {
+  padding-top: var(--pystore-media-level-2-spacing);
+}
+.media .media .media + .media {
+  margin-top: var(--pystore-media-level-2-spacing);
+}
+.media + .media {
+  border-top: var(--pystore-media-border-size) solid
+    var(--pystore-media-border-color);
+  margin-top: var(--pystore-media-spacing);
+  padding-top: var(--pystore-media-spacing);
+}
+.media.is-large + .media {
+  margin-top: var(--pystore-media-spacing-large);
+  padding-top: var(--pystore-media-spacing-large);
+}
+.section {
+  --pystore-section-padding: 3rem 1.5rem;
+  --pystore-section-padding-desktop: 3rem 3rem;
+  --pystore-section-padding-medium: 9rem 4.5rem;
+  --pystore-section-padding-large: 18rem 6rem;
+  padding: var(--pystore-section-padding);
+}
+@media screen and (min-width: 1024px) {
+  .section {
+    padding: var(--pystore-section-padding-desktop);
+  }
+  .section.is-large {
+    padding: var(--pystore-section-padding-large);
+  }
+}
+:root {
+  --pystore-skeleton-background: var(--pystore-border);
+  --pystore-skeleton-radius: var(--pystore-radius-small);
+  --pystore-skeleton-block-min-height: 4.5em;
+  --pystore-skeleton-lines-gap: 0.75em;
+  --pystore-skeleton-line-height: 0.75em;
+}
+:root {
+  --pystore-scheme-h: 221;
+  --pystore-scheme-s: 14%;
+  --pystore-light-l: 90%;
+  --pystore-light-invert-l: 20%;
+  --pystore-dark-l: 20%;
+  --pystore-dark-invert-l: 90%;
+  --pystore-soft-l: 90%;
+  --pystore-bold-l: 20%;
+  --pystore-soft-invert-l: 20%;
+  --pystore-bold-invert-l: 90%;
+  --pystore-hover-background-l-delta: -5%;
+  --pystore-active-background-l-delta: -10%;
+  --pystore-hover-border-l-delta: -10%;
+  --pystore-active-border-l-delta: -20%;
+  --pystore-hover-color-l-delta: -5%;
+  --pystore-active-color-l-delta: -10%;
+  --pystore-hover-shadow-a-delta: -0.05;
+  --pystore-active-shadow-a-delta: -0.1;
+  --pystore-scheme-brightness: light;
+  --pystore-scheme-main-l: 100%;
+  --pystore-scheme-main-bis-l: 98%;
+  --pystore-scheme-main-ter-l: 96%;
+  --pystore-background-l: 96%;
+  --pystore-border-weak-l: 93%;
+  --pystore-border-l: 86%;
+  --pystore-text-weak-l: 48%;
+  --pystore-text-strong-l: 21%;
+  --pystore-text-title-l: 14%;
+  --pystore-scheme-invert-ter-l: 14%;
+  --pystore-scheme-invert-bis-l: 7%;
+  --pystore-scheme-invert-l: 4%;
+  --pystore-family-primary: Inter, SF Pro, Segoe UI, Roboto, Oxygen, Ubuntu,
+    Helvetica Neue, Helvetica, Arial, sans-serif;
+  --pystore-family-secondary: Inter, SF Pro, Segoe UI, Roboto, Oxygen, Ubuntu,
+    Helvetica Neue, Helvetica, Arial, sans-serif;
+  --pystore-family-code: Inconsolata, Hack, SF Mono, Roboto Mono,
+    Source Code Pro, Ubuntu Mono, monospace;
+  --pystore-size-small: 0.75rem;
+  --pystore-size-normal: 1rem;
+  --pystore-size-medium: 1.25rem;
+  --pystore-size-large: 1.5rem;
+  --pystore-weight-light: 300;
+  --pystore-weight-normal: 400;
+  --pystore-weight-medium: 500;
+  --pystore-weight-semibold: 600;
+  --pystore-weight-bold: 700;
+  --pystore-weight-extrabold: 800;
+  --pystore-block-spacing: 1.5rem;
+  --pystore-duration: 294ms;
+  --pystore-easing: ease-out;
+  --pystore-radius-small: 0.25rem;
+  --pystore-radius: 0.375rem;
+  --pystore-radius-medium: 0.5em;
+  --pystore-radius-large: 0.75rem;
+  --pystore-radius-rounded: 9999px;
+  --pystore-speed: 86ms;
+  --pystore-loading-color: var(--pystore-border);
+  --pystore-burger-h: var(--pystore-link-h);
+  --pystore-burger-s: var(--pystore-link-s);
+  --pystore-burger-l: var(--pystore-link-l);
+  --pystore-burger-border-radius: 0.5em;
+  --pystore-burger-gap: 5px;
+  --pystore-burger-item-height: 2px;
+  --pystore-burger-item-width: 20px;
+  --pystore-white: hsla(
+    var(--pystore-white-h),
+    var(--pystore-white-s),
+    var(--pystore-white-l),
+    1
+  );
+  --pystore-white-base: hsla(
+    var(--pystore-white-h),
+    var(--pystore-white-s),
+    var(--pystore-white-l),
+    1
+  );
+  --pystore-white-rgb: 255, 255, 255;
+  --pystore-white-h: 221deg;
+  --pystore-white-s: 14%;
+  --pystore-white-l: 100%;
+  --pystore-white-invert-l: 4%;
+  --pystore-white-invert: #090a0c;
+  --pystore-white-on-scheme-l: 35%;
+  --pystore-white-on-scheme: hsla(
+    var(--pystore-white-h),
+    var(--pystore-white-s),
+    var(--pystore-white-on-scheme-l),
+    1
+  );
+  --pystore-black: hsla(
+    var(--pystore-black-h),
+    var(--pystore-black-s),
+    var(--pystore-black-l),
+    1
+  );
+  --pystore-black-base: hsla(
+    var(--pystore-black-h),
+    var(--pystore-black-s),
+    var(--pystore-black-l),
+    1
+  );
+  --pystore-black-rgb: 9, 10, 12;
+  --pystore-black-h: 221deg;
+  --pystore-black-s: 14%;
+  --pystore-black-l: 4%;
+  --pystore-black-invert-l: 100%;
+  --pystore-black-invert: #fff;
+  --pystore-black-on-scheme-l: 4%;
+  --pystore-black-on-scheme: hsla(
+    var(--pystore-black-h),
+    var(--pystore-black-s),
+    var(--pystore-black-on-scheme-l),
+    1
+  );
+  --pystore-light: hsla(
+    var(--pystore-light-h),
+    var(--pystore-light-s),
+    var(--pystore-light-l),
+    1
+  );
+  --pystore-light-base: hsla(
+    var(--pystore-light-h),
+    var(--pystore-light-s),
+    var(--pystore-light-l),
+    1
+  );
+  --pystore-light-rgb: 243, 244, 246;
+  --pystore-light-h: 221deg;
+  --pystore-light-s: 14%;
+  --pystore-light-l: 96%;
+  --pystore-light-invert-l: 21%;
+  --pystore-light-invert: #2e333d;
+  --pystore-light-on-scheme-l: 36%;
+  --pystore-light-on-scheme: hsla(
+    var(--pystore-light-h),
+    var(--pystore-light-s),
+    var(--pystore-light-on-scheme-l),
+    1
+  );
+  --pystore-dark: hsla(
+    var(--pystore-dark-h),
+    var(--pystore-dark-s),
+    var(--pystore-dark-l),
+    1
+  );
+  --pystore-dark-base: hsla(
+    var(--pystore-dark-h),
+    var(--pystore-dark-s),
+    var(--pystore-dark-l),
+    1
+  );
+  --pystore-dark-rgb: 46, 51, 61;
+  --pystore-dark-h: 221deg;
+  --pystore-dark-s: 14%;
+  --pystore-dark-l: 21%;
+  --pystore-dark-invert-l: 96%;
+  --pystore-dark-invert: #f3f4f6;
+  --pystore-dark-on-scheme-l: 21%;
+  --pystore-dark-on-scheme: hsla(
+    var(--pystore-dark-h),
+    var(--pystore-dark-s),
+    var(--pystore-dark-on-scheme-l),
+    1
+  );
+  --pystore-text: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-l),
+    1
+  );
+  --pystore-text-base: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-l),
+    1
+  );
+  --pystore-text-rgb: 64, 70, 84;
+  --pystore-text-h: 221deg;
+  --pystore-text-s: 14%;
+  --pystore-text-l: 29%;
+  --pystore-text-00-l: 0%;
+  --pystore-text-05-l: 4%;
+  --pystore-text-10-l: 9%;
+  --pystore-text-15-l: 14%;
+  --pystore-text-20-l: 19%;
+  --pystore-text-25-l: 24%;
+  --pystore-text-30-l: 29%;
+  --pystore-text-35-l: 34%;
+  --pystore-text-40-l: 39%;
+  --pystore-text-45-l: 44%;
+  --pystore-text-50-l: 49%;
+  --pystore-text-55-l: 54%;
+  --pystore-text-60-l: 59%;
+  --pystore-text-65-l: 64%;
+  --pystore-text-70-l: 69%;
+  --pystore-text-75-l: 74%;
+  --pystore-text-80-l: 79%;
+  --pystore-text-85-l: 84%;
+  --pystore-text-90-l: 89%;
+  --pystore-text-95-l: 94%;
+  --pystore-text-100-l: 100%;
+  --pystore-text-00: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-00-l),
+    1
+  );
+  --pystore-text-00-invert-l: var(--pystore-text-60-l);
+  --pystore-text-00-invert: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-00-invert-l),
+    1
+  );
+  --pystore-text-05: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-05-l),
+    1
+  );
+  --pystore-text-05-invert-l: var(--pystore-text-60-l);
+  --pystore-text-05-invert: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-05-invert-l),
+    1
+  );
+  --pystore-text-10: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-10-l),
+    1
+  );
+  --pystore-text-10-invert-l: var(--pystore-text-70-l);
+  --pystore-text-10-invert: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-10-invert-l),
+    1
+  );
+  --pystore-text-15: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-15-l),
+    1
+  );
+  --pystore-text-15-invert-l: var(--pystore-text-75-l);
+  --pystore-text-15-invert: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-15-invert-l),
+    1
+  );
+  --pystore-text-20: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-20-l),
+    1
+  );
+  --pystore-text-20-invert-l: var(--pystore-text-85-l);
+  --pystore-text-20-invert: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-20-invert-l),
+    1
+  );
+  --pystore-text-25: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-25-l),
+    1
+  );
+  --pystore-text-25-invert-l: var(--pystore-text-95-l);
+  --pystore-text-25-invert: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-25-invert-l),
+    1
+  );
+  --pystore-text-30: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-30-l),
+    1
+  );
+  --pystore-text-30-invert-l: var(--pystore-text-100-l);
+  --pystore-text-30-invert: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-30-invert-l),
+    1
+  );
+  --pystore-text-35: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-35-l),
+    1
+  );
+  --pystore-text-35-invert-l: var(--pystore-text-100-l);
+  --pystore-text-35-invert: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-35-invert-l),
+    1
+  );
+  --pystore-text-40: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-40-l),
+    1
+  );
+  --pystore-text-40-invert-l: var(--pystore-text-100-l);
+  --pystore-text-40-invert: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-40-invert-l),
+    1
+  );
+  --pystore-text-45: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-45-l),
+    1
+  );
+  --pystore-text-45-invert-l: var(--pystore-text-100-l);
+  --pystore-text-45-invert: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-45-invert-l),
+    1
+  );
+  --pystore-text-50: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-50-l),
+    1
+  );
+  --pystore-text-50-invert-l: var(--pystore-text-100-l);
+  --pystore-text-50-invert: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-50-invert-l),
+    1
+  );
+  --pystore-text-55: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-55-l),
+    1
+  );
+  --pystore-text-55-invert-l: var(--pystore-text-100-l);
+  --pystore-text-55-invert: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-55-invert-l),
+    1
+  );
+  --pystore-text-60: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-60-l),
+    1
+  );
+  --pystore-text-60-invert-l: var(--pystore-text-05-l);
+  --pystore-text-60-invert: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-60-invert-l),
+    1
+  );
+  --pystore-text-65: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-65-l),
+    1
+  );
+  --pystore-text-65-invert-l: var(--pystore-text-05-l);
+  --pystore-text-65-invert: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-65-invert-l),
+    1
+  );
+  --pystore-text-70: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-70-l),
+    1
+  );
+  --pystore-text-70-invert-l: var(--pystore-text-10-l);
+  --pystore-text-70-invert: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-70-invert-l),
+    1
+  );
+  --pystore-text-75: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-75-l),
+    1
+  );
+  --pystore-text-75-invert-l: var(--pystore-text-15-l);
+  --pystore-text-75-invert: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-75-invert-l),
+    1
+  );
+  --pystore-text-80: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-80-l),
+    1
+  );
+  --pystore-text-80-invert-l: var(--pystore-text-15-l);
+  --pystore-text-80-invert: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-80-invert-l),
+    1
+  );
+  --pystore-text-85: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-85-l),
+    1
+  );
+  --pystore-text-85-invert-l: var(--pystore-text-20-l);
+  --pystore-text-85-invert: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-85-invert-l),
+    1
+  );
+  --pystore-text-90: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-90-l),
+    1
+  );
+  --pystore-text-90-invert-l: var(--pystore-text-20-l);
+  --pystore-text-90-invert: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-90-invert-l),
+    1
+  );
+  --pystore-text-95: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-95-l),
+    1
+  );
+  --pystore-text-95-invert-l: var(--pystore-text-25-l);
+  --pystore-text-95-invert: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-95-invert-l),
+    1
+  );
+  --pystore-text-100: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-100-l),
+    1
+  );
+  --pystore-text-100-invert-l: var(--pystore-text-30-l);
+  --pystore-text-100-invert: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-100-invert-l),
+    1
+  );
+  --pystore-text-invert-l: var(--pystore-text-100-l);
+  --pystore-text-invert: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-invert-l),
+    1
+  );
+  --pystore-text-light-l: var(--pystore-text-90-l);
+  --pystore-text-light: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-light-l),
+    1
+  );
+  --pystore-text-light-invert-l: var(--pystore-text-20-l);
+  --pystore-text-light-invert: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-light-invert-l),
+    1
+  );
+  --pystore-text-dark-l: var(--pystore-text-10-l);
+  --pystore-text-dark: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-dark-l),
+    1
+  );
+  --pystore-text-dark-invert-l: var(--pystore-text-70-l);
+  --pystore-text-dark-invert: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-dark-invert-l),
+    1
+  );
+  --pystore-text-soft: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-soft-l),
+    1
+  );
+  --pystore-text-bold: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-bold-l),
+    1
+  );
+  --pystore-text-soft-invert: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-soft-invert-l),
+    1
+  );
+  --pystore-text-bold-invert: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-bold-invert-l),
+    1
+  );
+  --pystore-text-on-scheme-l: 29%;
+  --pystore-text-on-scheme: hsla(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-on-scheme-l),
+    1
+  );
+  --pystore-primary: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-l),
+    1
+  );
+  --pystore-primary-base: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-l),
+    1
+  );
+  --pystore-primary-rgb: 0, 209, 178;
+  --pystore-primary-h: 171deg;
+  --pystore-primary-s: 100%;
+  --pystore-primary-l: 41%;
+  --pystore-primary-00-l: 1%;
+  --pystore-primary-05-l: 6%;
+  --pystore-primary-10-l: 11%;
+  --pystore-primary-15-l: 16%;
+  --pystore-primary-20-l: 21%;
+  --pystore-primary-25-l: 26%;
+  --pystore-primary-30-l: 31%;
+  --pystore-primary-35-l: 36%;
+  --pystore-primary-40-l: 41%;
+  --pystore-primary-45-l: 46%;
+  --pystore-primary-50-l: 51%;
+  --pystore-primary-55-l: 56%;
+  --pystore-primary-60-l: 61%;
+  --pystore-primary-65-l: 66%;
+  --pystore-primary-70-l: 71%;
+  --pystore-primary-75-l: 76%;
+  --pystore-primary-80-l: 81%;
+  --pystore-primary-85-l: 86%;
+  --pystore-primary-90-l: 91%;
+  --pystore-primary-95-l: 96%;
+  --pystore-primary-100-l: 100%;
+  --pystore-primary-00: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-00-l),
+    1
+  );
+  --pystore-primary-00-invert-l: var(--pystore-primary-30-l);
+  --pystore-primary-00-invert: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-00-invert-l),
+    1
+  );
+  --pystore-primary-05: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-05-l),
+    1
+  );
+  --pystore-primary-05-invert-l: var(--pystore-primary-40-l);
+  --pystore-primary-05-invert: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-05-invert-l),
+    1
+  );
+  --pystore-primary-10: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-10-l),
+    1
+  );
+  --pystore-primary-10-invert-l: var(--pystore-primary-50-l);
+  --pystore-primary-10-invert: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-10-invert-l),
+    1
+  );
+  --pystore-primary-15: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-15-l),
+    1
+  );
+  --pystore-primary-15-invert-l: var(--pystore-primary-100-l);
+  --pystore-primary-15-invert: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-15-invert-l),
+    1
+  );
+  --pystore-primary-20: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-20-l),
+    1
+  );
+  --pystore-primary-20-invert-l: var(--pystore-primary-100-l);
+  --pystore-primary-20-invert: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-20-invert-l),
+    1
+  );
+  --pystore-primary-25: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-25-l),
+    1
+  );
+  --pystore-primary-25-invert-l: var(--pystore-primary-100-l);
+  --pystore-primary-25-invert: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-25-invert-l),
+    1
+  );
+  --pystore-primary-30: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-30-l),
+    1
+  );
+  --pystore-primary-30-invert-l: var(--pystore-primary-00-l);
+  --pystore-primary-30-invert: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-30-invert-l),
+    1
+  );
+  --pystore-primary-35: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-35-l),
+    1
+  );
+  --pystore-primary-35-invert-l: var(--pystore-primary-00-l);
+  --pystore-primary-35-invert: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-35-invert-l),
+    1
+  );
+  --pystore-primary-40: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-40-l),
+    1
+  );
+  --pystore-primary-40-invert-l: var(--pystore-primary-05-l);
+  --pystore-primary-40-invert: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-40-invert-l),
+    1
+  );
+  --pystore-primary-45: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-45-l),
+    1
+  );
+  --pystore-primary-45-invert-l: var(--pystore-primary-05-l);
+  --pystore-primary-45-invert: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-45-invert-l),
+    1
+  );
+  --pystore-primary-50: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-50-l),
+    1
+  );
+  --pystore-primary-50-invert-l: var(--pystore-primary-10-l);
+  --pystore-primary-50-invert: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-50-invert-l),
+    1
+  );
+  --pystore-primary-55: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-55-l),
+    1
+  );
+  --pystore-primary-55-invert-l: var(--pystore-primary-10-l);
+  --pystore-primary-55-invert: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-55-invert-l),
+    1
+  );
+  --pystore-primary-60: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-60-l),
+    1
+  );
+  --pystore-primary-60-invert-l: var(--pystore-primary-10-l);
+  --pystore-primary-60-invert: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-60-invert-l),
+    1
+  );
+  --pystore-primary-65: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-65-l),
+    1
+  );
+  --pystore-primary-65-invert-l: var(--pystore-primary-10-l);
+  --pystore-primary-65-invert: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-65-invert-l),
+    1
+  );
+  --pystore-primary-70: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-70-l),
+    1
+  );
+  --pystore-primary-70-invert-l: var(--pystore-primary-10-l);
+  --pystore-primary-70-invert: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-70-invert-l),
+    1
+  );
+  --pystore-primary-75: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-75-l),
+    1
+  );
+  --pystore-primary-75-invert-l: var(--pystore-primary-10-l);
+  --pystore-primary-75-invert: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-75-invert-l),
+    1
+  );
+  --pystore-primary-80: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-80-l),
+    1
+  );
+  --pystore-primary-80-invert-l: var(--pystore-primary-10-l);
+  --pystore-primary-80-invert: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-80-invert-l),
+    1
+  );
+  --pystore-primary-85: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-85-l),
+    1
+  );
+  --pystore-primary-85-invert-l: var(--pystore-primary-10-l);
+  --pystore-primary-85-invert: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-85-invert-l),
+    1
+  );
+  --pystore-primary-90: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-90-l),
+    1
+  );
+  --pystore-primary-90-invert-l: var(--pystore-primary-10-l);
+  --pystore-primary-90-invert: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-90-invert-l),
+    1
+  );
+  --pystore-primary-95: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-95-l),
+    1
+  );
+  --pystore-primary-95-invert-l: var(--pystore-primary-10-l);
+  --pystore-primary-95-invert: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-95-invert-l),
+    1
+  );
+  --pystore-primary-100: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-100-l),
+    1
+  );
+  --pystore-primary-100-invert-l: var(--pystore-primary-15-l);
+  --pystore-primary-100-invert: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-100-invert-l),
+    1
+  );
+  --pystore-primary-invert-l: var(--pystore-primary-05-l);
+  --pystore-primary-invert: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-invert-l),
+    1
+  );
+  --pystore-primary-light-l: var(--pystore-primary-90-l);
+  --pystore-primary-light: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-light-l),
+    1
+  );
+  --pystore-primary-light-invert-l: var(--pystore-primary-10-l);
+  --pystore-primary-light-invert: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-light-invert-l),
+    1
+  );
+  --pystore-primary-dark-l: var(--pystore-primary-10-l);
+  --pystore-primary-dark: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-dark-l),
+    1
+  );
+  --pystore-primary-dark-invert-l: var(--pystore-primary-50-l);
+  --pystore-primary-dark-invert: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-dark-invert-l),
+    1
+  );
+  --pystore-primary-soft: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-soft-l),
+    1
+  );
+  --pystore-primary-bold: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-bold-l),
+    1
+  );
+  --pystore-primary-soft-invert: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-soft-invert-l),
+    1
+  );
+  --pystore-primary-bold-invert: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-bold-invert-l),
+    1
+  );
+  --pystore-primary-on-scheme-l: 21%;
+  --pystore-primary-on-scheme: hsla(
+    var(--pystore-primary-h),
+    var(--pystore-primary-s),
+    var(--pystore-primary-on-scheme-l),
+    1
+  );
+  --pystore-link: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-l),
+    1
+  );
+  --pystore-link-base: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-l),
+    1
+  );
+  --pystore-link-rgb: 66, 88, 255;
+  --pystore-link-h: 233deg;
+  --pystore-link-s: 100%;
+  --pystore-link-l: 63%;
+  --pystore-link-00-l: 0%;
+  --pystore-link-05-l: 3%;
+  --pystore-link-10-l: 8%;
+  --pystore-link-15-l: 13%;
+  --pystore-link-20-l: 18%;
+  --pystore-link-25-l: 23%;
+  --pystore-link-30-l: 28%;
+  --pystore-link-35-l: 33%;
+  --pystore-link-40-l: 38%;
+  --pystore-link-45-l: 43%;
+  --pystore-link-50-l: 48%;
+  --pystore-link-55-l: 53%;
+  --pystore-link-60-l: 58%;
+  --pystore-link-65-l: 63%;
+  --pystore-link-70-l: 68%;
+  --pystore-link-75-l: 73%;
+  --pystore-link-80-l: 78%;
+  --pystore-link-85-l: 83%;
+  --pystore-link-90-l: 88%;
+  --pystore-link-95-l: 93%;
+  --pystore-link-100-l: 100%;
+  --pystore-link-00: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-00-l),
+    1
+  );
+  --pystore-link-00-invert-l: var(--pystore-link-75-l);
+  --pystore-link-00-invert: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-00-invert-l),
+    1
+  );
+  --pystore-link-05: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-05-l),
+    1
+  );
+  --pystore-link-05-invert-l: var(--pystore-link-75-l);
+  --pystore-link-05-invert: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-05-invert-l),
+    1
+  );
+  --pystore-link-10: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-10-l),
+    1
+  );
+  --pystore-link-10-invert-l: var(--pystore-link-75-l);
+  --pystore-link-10-invert: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-10-invert-l),
+    1
+  );
+  --pystore-link-15: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-15-l),
+    1
+  );
+  --pystore-link-15-invert-l: var(--pystore-link-80-l);
+  --pystore-link-15-invert: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-15-invert-l),
+    1
+  );
+  --pystore-link-20: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-20-l),
+    1
+  );
+  --pystore-link-20-invert-l: var(--pystore-link-80-l);
+  --pystore-link-20-invert: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-20-invert-l),
+    1
+  );
+  --pystore-link-25: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-25-l),
+    1
+  );
+  --pystore-link-25-invert-l: var(--pystore-link-85-l);
+  --pystore-link-25-invert: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-25-invert-l),
+    1
+  );
+  --pystore-link-30: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-30-l),
+    1
+  );
+  --pystore-link-30-invert-l: var(--pystore-link-90-l);
+  --pystore-link-30-invert: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-30-invert-l),
+    1
+  );
+  --pystore-link-35: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-35-l),
+    1
+  );
+  --pystore-link-35-invert-l: var(--pystore-link-90-l);
+  --pystore-link-35-invert: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-35-invert-l),
+    1
+  );
+  --pystore-link-40: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-40-l),
+    1
+  );
+  --pystore-link-40-invert-l: var(--pystore-link-95-l);
+  --pystore-link-40-invert: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-40-invert-l),
+    1
+  );
+  --pystore-link-45: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-45-l),
+    1
+  );
+  --pystore-link-45-invert-l: var(--pystore-link-100-l);
+  --pystore-link-45-invert: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-45-invert-l),
+    1
+  );
+  --pystore-link-50: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-50-l),
+    1
+  );
+  --pystore-link-50-invert-l: var(--pystore-link-100-l);
+  --pystore-link-50-invert: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-50-invert-l),
+    1
+  );
+  --pystore-link-55: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-55-l),
+    1
+  );
+  --pystore-link-55-invert-l: var(--pystore-link-100-l);
+  --pystore-link-55-invert: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-55-invert-l),
+    1
+  );
+  --pystore-link-60: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-60-l),
+    1
+  );
+  --pystore-link-60-invert-l: var(--pystore-link-100-l);
+  --pystore-link-60-invert: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-60-invert-l),
+    1
+  );
+  --pystore-link-65: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-65-l),
+    1
+  );
+  --pystore-link-65-invert-l: var(--pystore-link-100-l);
+  --pystore-link-65-invert: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-65-invert-l),
+    1
+  );
+  --pystore-link-70: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-70-l),
+    1
+  );
+  --pystore-link-70-invert-l: var(--pystore-link-100-l);
+  --pystore-link-70-invert: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-70-invert-l),
+    1
+  );
+  --pystore-link-75: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-75-l),
+    1
+  );
+  --pystore-link-75-invert-l: var(--pystore-link-10-l);
+  --pystore-link-75-invert: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-75-invert-l),
+    1
+  );
+  --pystore-link-80: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-80-l),
+    1
+  );
+  --pystore-link-80-invert-l: var(--pystore-link-20-l);
+  --pystore-link-80-invert: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-80-invert-l),
+    1
+  );
+  --pystore-link-85: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-85-l),
+    1
+  );
+  --pystore-link-85-invert-l: var(--pystore-link-25-l);
+  --pystore-link-85-invert: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-85-invert-l),
+    1
+  );
+  --pystore-link-90: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-90-l),
+    1
+  );
+  --pystore-link-90-invert-l: var(--pystore-link-35-l);
+  --pystore-link-90-invert: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-90-invert-l),
+    1
+  );
+  --pystore-link-95: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-95-l),
+    1
+  );
+  --pystore-link-95-invert-l: var(--pystore-link-40-l);
+  --pystore-link-95-invert: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-95-invert-l),
+    1
+  );
+  --pystore-link-100: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-100-l),
+    1
+  );
+  --pystore-link-100-invert-l: var(--pystore-link-50-l);
+  --pystore-link-100-invert: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-100-invert-l),
+    1
+  );
+  --pystore-link-invert-l: var(--pystore-link-100-l);
+  --pystore-link-invert: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-invert-l),
+    1
+  );
+  --pystore-link-light-l: var(--pystore-link-90-l);
+  --pystore-link-light: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-light-l),
+    1
+  );
+  --pystore-link-light-invert-l: var(--pystore-link-35-l);
+  --pystore-link-light-invert: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-light-invert-l),
+    1
+  );
+  --pystore-link-dark-l: var(--pystore-link-10-l);
+  --pystore-link-dark: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-dark-l),
+    1
+  );
+  --pystore-link-dark-invert-l: var(--pystore-link-75-l);
+  --pystore-link-dark-invert: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-dark-invert-l),
+    1
+  );
+  --pystore-link-soft: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-soft-l),
+    1
+  );
+  --pystore-link-bold: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-bold-l),
+    1
+  );
+  --pystore-link-soft-invert: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-soft-invert-l),
+    1
+  );
+  --pystore-link-bold-invert: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-bold-invert-l),
+    1
+  );
+  --pystore-link-on-scheme-l: 58%;
+  --pystore-link-on-scheme: hsla(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-on-scheme-l),
+    1
+  );
+  --pystore-info: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-l),
+    1
+  );
+  --pystore-info-base: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-l),
+    1
+  );
+  --pystore-info-rgb: 102, 209, 255;
+  --pystore-info-h: 198deg;
+  --pystore-info-s: 100%;
+  --pystore-info-l: 70%;
+  --pystore-info-00-l: 0%;
+  --pystore-info-05-l: 5%;
+  --pystore-info-10-l: 10%;
+  --pystore-info-15-l: 15%;
+  --pystore-info-20-l: 20%;
+  --pystore-info-25-l: 25%;
+  --pystore-info-30-l: 30%;
+  --pystore-info-35-l: 35%;
+  --pystore-info-40-l: 40%;
+  --pystore-info-45-l: 45%;
+  --pystore-info-50-l: 50%;
+  --pystore-info-55-l: 55%;
+  --pystore-info-60-l: 60%;
+  --pystore-info-65-l: 65%;
+  --pystore-info-70-l: 70%;
+  --pystore-info-75-l: 75%;
+  --pystore-info-80-l: 80%;
+  --pystore-info-85-l: 85%;
+  --pystore-info-90-l: 90%;
+  --pystore-info-95-l: 95%;
+  --pystore-info-100-l: 100%;
+  --pystore-info-00: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-00-l),
+    1
+  );
+  --pystore-info-00-invert-l: var(--pystore-info-45-l);
+  --pystore-info-00-invert: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-00-invert-l),
+    1
+  );
+  --pystore-info-05: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-05-l),
+    1
+  );
+  --pystore-info-05-invert-l: var(--pystore-info-50-l);
+  --pystore-info-05-invert: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-05-invert-l),
+    1
+  );
+  --pystore-info-10: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-10-l),
+    1
+  );
+  --pystore-info-10-invert-l: var(--pystore-info-60-l);
+  --pystore-info-10-invert: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-10-invert-l),
+    1
+  );
+  --pystore-info-15: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-15-l),
+    1
+  );
+  --pystore-info-15-invert-l: var(--pystore-info-80-l);
+  --pystore-info-15-invert: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-15-invert-l),
+    1
+  );
+  --pystore-info-20: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-20-l),
+    1
+  );
+  --pystore-info-20-invert-l: var(--pystore-info-95-l);
+  --pystore-info-20-invert: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-20-invert-l),
+    1
+  );
+  --pystore-info-25: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-25-l),
+    1
+  );
+  --pystore-info-25-invert-l: var(--pystore-info-100-l);
+  --pystore-info-25-invert: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-25-invert-l),
+    1
+  );
+  --pystore-info-30: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-30-l),
+    1
+  );
+  --pystore-info-30-invert-l: var(--pystore-info-100-l);
+  --pystore-info-30-invert: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-30-invert-l),
+    1
+  );
+  --pystore-info-35: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-35-l),
+    1
+  );
+  --pystore-info-35-invert-l: var(--pystore-info-100-l);
+  --pystore-info-35-invert: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-35-invert-l),
+    1
+  );
+  --pystore-info-40: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-40-l),
+    1
+  );
+  --pystore-info-40-invert-l: var(--pystore-info-100-l);
+  --pystore-info-40-invert: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-40-invert-l),
+    1
+  );
+  --pystore-info-45: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-45-l),
+    1
+  );
+  --pystore-info-45-invert-l: var(--pystore-info-00-l);
+  --pystore-info-45-invert: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-45-invert-l),
+    1
+  );
+  --pystore-info-50: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-50-l),
+    1
+  );
+  --pystore-info-50-invert-l: var(--pystore-info-05-l);
+  --pystore-info-50-invert: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-50-invert-l),
+    1
+  );
+  --pystore-info-55: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-55-l),
+    1
+  );
+  --pystore-info-55-invert-l: var(--pystore-info-05-l);
+  --pystore-info-55-invert: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-55-invert-l),
+    1
+  );
+  --pystore-info-60: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-60-l),
+    1
+  );
+  --pystore-info-60-invert-l: var(--pystore-info-10-l);
+  --pystore-info-60-invert: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-60-invert-l),
+    1
+  );
+  --pystore-info-65: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-65-l),
+    1
+  );
+  --pystore-info-65-invert-l: var(--pystore-info-10-l);
+  --pystore-info-65-invert: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-65-invert-l),
+    1
+  );
+  --pystore-info-70: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-70-l),
+    1
+  );
+  --pystore-info-70-invert-l: var(--pystore-info-10-l);
+  --pystore-info-70-invert: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-70-invert-l),
+    1
+  );
+  --pystore-info-75: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-75-l),
+    1
+  );
+  --pystore-info-75-invert-l: var(--pystore-info-10-l);
+  --pystore-info-75-invert: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-75-invert-l),
+    1
+  );
+  --pystore-info-80: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-80-l),
+    1
+  );
+  --pystore-info-80-invert-l: var(--pystore-info-15-l);
+  --pystore-info-80-invert: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-80-invert-l),
+    1
+  );
+  --pystore-info-85: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-85-l),
+    1
+  );
+  --pystore-info-85-invert-l: var(--pystore-info-15-l);
+  --pystore-info-85-invert: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-85-invert-l),
+    1
+  );
+  --pystore-info-90: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-90-l),
+    1
+  );
+  --pystore-info-90-invert-l: var(--pystore-info-15-l);
+  --pystore-info-90-invert: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-90-invert-l),
+    1
+  );
+  --pystore-info-95: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-95-l),
+    1
+  );
+  --pystore-info-95-invert-l: var(--pystore-info-20-l);
+  --pystore-info-95-invert: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-95-invert-l),
+    1
+  );
+  --pystore-info-100: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-100-l),
+    1
+  );
+  --pystore-info-100-invert-l: var(--pystore-info-20-l);
+  --pystore-info-100-invert: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-100-invert-l),
+    1
+  );
+  --pystore-info-invert-l: var(--pystore-info-10-l);
+  --pystore-info-invert: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-invert-l),
+    1
+  );
+  --pystore-info-light-l: var(--pystore-info-90-l);
+  --pystore-info-light: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-light-l),
+    1
+  );
+  --pystore-info-light-invert-l: var(--pystore-info-15-l);
+  --pystore-info-light-invert: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-light-invert-l),
+    1
+  );
+  --pystore-info-dark-l: var(--pystore-info-10-l);
+  --pystore-info-dark: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-dark-l),
+    1
+  );
+  --pystore-info-dark-invert-l: var(--pystore-info-60-l);
+  --pystore-info-dark-invert: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-dark-invert-l),
+    1
+  );
+  --pystore-info-soft: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-soft-l),
+    1
+  );
+  --pystore-info-bold: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-bold-l),
+    1
+  );
+  --pystore-info-soft-invert: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-soft-invert-l),
+    1
+  );
+  --pystore-info-bold-invert: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-bold-invert-l),
+    1
+  );
+  --pystore-info-on-scheme-l: 25%;
+  --pystore-info-on-scheme: hsla(
+    var(--pystore-info-h),
+    var(--pystore-info-s),
+    var(--pystore-info-on-scheme-l),
+    1
+  );
+  --pystore-success: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-l),
+    1
+  );
+  --pystore-success-base: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-l),
+    1
+  );
+  --pystore-success-rgb: 72, 199, 142;
+  --pystore-success-h: 153deg;
+  --pystore-success-s: 53%;
+  --pystore-success-l: 53%;
+  --pystore-success-00-l: 0%;
+  --pystore-success-05-l: 3%;
+  --pystore-success-10-l: 8%;
+  --pystore-success-15-l: 13%;
+  --pystore-success-20-l: 18%;
+  --pystore-success-25-l: 23%;
+  --pystore-success-30-l: 28%;
+  --pystore-success-35-l: 33%;
+  --pystore-success-40-l: 38%;
+  --pystore-success-45-l: 43%;
+  --pystore-success-50-l: 48%;
+  --pystore-success-55-l: 53%;
+  --pystore-success-60-l: 58%;
+  --pystore-success-65-l: 63%;
+  --pystore-success-70-l: 68%;
+  --pystore-success-75-l: 73%;
+  --pystore-success-80-l: 78%;
+  --pystore-success-85-l: 83%;
+  --pystore-success-90-l: 88%;
+  --pystore-success-95-l: 93%;
+  --pystore-success-100-l: 100%;
+  --pystore-success-00: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-00-l),
+    1
+  );
+  --pystore-success-00-invert-l: var(--pystore-success-45-l);
+  --pystore-success-00-invert: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-00-invert-l),
+    1
+  );
+  --pystore-success-05: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-05-l),
+    1
+  );
+  --pystore-success-05-invert-l: var(--pystore-success-45-l);
+  --pystore-success-05-invert: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-05-invert-l),
+    1
+  );
+  --pystore-success-10: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-10-l),
+    1
+  );
+  --pystore-success-10-invert-l: var(--pystore-success-55-l);
+  --pystore-success-10-invert: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-10-invert-l),
+    1
+  );
+  --pystore-success-15: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-15-l),
+    1
+  );
+  --pystore-success-15-invert-l: var(--pystore-success-75-l);
+  --pystore-success-15-invert: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-15-invert-l),
+    1
+  );
+  --pystore-success-20: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-20-l),
+    1
+  );
+  --pystore-success-20-invert-l: var(--pystore-success-90-l);
+  --pystore-success-20-invert: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-20-invert-l),
+    1
+  );
+  --pystore-success-25: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-25-l),
+    1
+  );
+  --pystore-success-25-invert-l: var(--pystore-success-100-l);
+  --pystore-success-25-invert: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-25-invert-l),
+    1
+  );
+  --pystore-success-30: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-30-l),
+    1
+  );
+  --pystore-success-30-invert-l: var(--pystore-success-100-l);
+  --pystore-success-30-invert: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-30-invert-l),
+    1
+  );
+  --pystore-success-35: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-35-l),
+    1
+  );
+  --pystore-success-35-invert-l: var(--pystore-success-100-l);
+  --pystore-success-35-invert: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-35-invert-l),
+    1
+  );
+  --pystore-success-40: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-40-l),
+    1
+  );
+  --pystore-success-40-invert-l: var(--pystore-success-100-l);
+  --pystore-success-40-invert: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-40-invert-l),
+    1
+  );
+  --pystore-success-45: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-45-l),
+    1
+  );
+  --pystore-success-45-invert-l: var(--pystore-success-05-l);
+  --pystore-success-45-invert: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-45-invert-l),
+    1
+  );
+  --pystore-success-50: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-50-l),
+    1
+  );
+  --pystore-success-50-invert-l: var(--pystore-success-05-l);
+  --pystore-success-50-invert: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-50-invert-l),
+    1
+  );
+  --pystore-success-55: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-55-l),
+    1
+  );
+  --pystore-success-55-invert-l: var(--pystore-success-10-l);
+  --pystore-success-55-invert: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-55-invert-l),
+    1
+  );
+  --pystore-success-60: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-60-l),
+    1
+  );
+  --pystore-success-60-invert-l: var(--pystore-success-10-l);
+  --pystore-success-60-invert: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-60-invert-l),
+    1
+  );
+  --pystore-success-65: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-65-l),
+    1
+  );
+  --pystore-success-65-invert-l: var(--pystore-success-10-l);
+  --pystore-success-65-invert: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-65-invert-l),
+    1
+  );
+  --pystore-success-70: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-70-l),
+    1
+  );
+  --pystore-success-70-invert-l: var(--pystore-success-10-l);
+  --pystore-success-70-invert: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-70-invert-l),
+    1
+  );
+  --pystore-success-75: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-75-l),
+    1
+  );
+  --pystore-success-75-invert-l: var(--pystore-success-15-l);
+  --pystore-success-75-invert: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-75-invert-l),
+    1
+  );
+  --pystore-success-80: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-80-l),
+    1
+  );
+  --pystore-success-80-invert-l: var(--pystore-success-15-l);
+  --pystore-success-80-invert: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-80-invert-l),
+    1
+  );
+  --pystore-success-85: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-85-l),
+    1
+  );
+  --pystore-success-85-invert-l: var(--pystore-success-15-l);
+  --pystore-success-85-invert: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-85-invert-l),
+    1
+  );
+  --pystore-success-90: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-90-l),
+    1
+  );
+  --pystore-success-90-invert-l: var(--pystore-success-20-l);
+  --pystore-success-90-invert: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-90-invert-l),
+    1
+  );
+  --pystore-success-95: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-95-l),
+    1
+  );
+  --pystore-success-95-invert-l: var(--pystore-success-20-l);
+  --pystore-success-95-invert: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-95-invert-l),
+    1
+  );
+  --pystore-success-100: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-100-l),
+    1
+  );
+  --pystore-success-100-invert-l: var(--pystore-success-20-l);
+  --pystore-success-100-invert: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-100-invert-l),
+    1
+  );
+  --pystore-success-invert-l: var(--pystore-success-10-l);
+  --pystore-success-invert: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-invert-l),
+    1
+  );
+  --pystore-success-light-l: var(--pystore-success-90-l);
+  --pystore-success-light: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-light-l),
+    1
+  );
+  --pystore-success-light-invert-l: var(--pystore-success-20-l);
+  --pystore-success-light-invert: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-light-invert-l),
+    1
+  );
+  --pystore-success-dark-l: var(--pystore-success-10-l);
+  --pystore-success-dark: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-dark-l),
+    1
+  );
+  --pystore-success-dark-invert-l: var(--pystore-success-55-l);
+  --pystore-success-dark-invert: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-dark-invert-l),
+    1
+  );
+  --pystore-success-soft: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-soft-l),
+    1
+  );
+  --pystore-success-bold: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-bold-l),
+    1
+  );
+  --pystore-success-soft-invert: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-soft-invert-l),
+    1
+  );
+  --pystore-success-bold-invert: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-bold-invert-l),
+    1
+  );
+  --pystore-success-on-scheme-l: 23%;
+  --pystore-success-on-scheme: hsla(
+    var(--pystore-success-h),
+    var(--pystore-success-s),
+    var(--pystore-success-on-scheme-l),
+    1
+  );
+  --pystore-warning: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-l),
+    1
+  );
+  --pystore-warning-base: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-l),
+    1
+  );
+  --pystore-warning-rgb: 255, 183, 15;
+  --pystore-warning-h: 42deg;
+  --pystore-warning-s: 100%;
+  --pystore-warning-l: 53%;
+  --pystore-warning-00-l: 0%;
+  --pystore-warning-05-l: 3%;
+  --pystore-warning-10-l: 8%;
+  --pystore-warning-15-l: 13%;
+  --pystore-warning-20-l: 18%;
+  --pystore-warning-25-l: 23%;
+  --pystore-warning-30-l: 28%;
+  --pystore-warning-35-l: 33%;
+  --pystore-warning-40-l: 38%;
+  --pystore-warning-45-l: 43%;
+  --pystore-warning-50-l: 48%;
+  --pystore-warning-55-l: 53%;
+  --pystore-warning-60-l: 58%;
+  --pystore-warning-65-l: 63%;
+  --pystore-warning-70-l: 68%;
+  --pystore-warning-75-l: 73%;
+  --pystore-warning-80-l: 78%;
+  --pystore-warning-85-l: 83%;
+  --pystore-warning-90-l: 88%;
+  --pystore-warning-95-l: 93%;
+  --pystore-warning-100-l: 100%;
+  --pystore-warning-00: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-00-l),
+    1
+  );
+  --pystore-warning-00-invert-l: var(--pystore-warning-40-l);
+  --pystore-warning-00-invert: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-00-invert-l),
+    1
+  );
+  --pystore-warning-05: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-05-l),
+    1
+  );
+  --pystore-warning-05-invert-l: var(--pystore-warning-45-l);
+  --pystore-warning-05-invert: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-05-invert-l),
+    1
+  );
+  --pystore-warning-10: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-10-l),
+    1
+  );
+  --pystore-warning-10-invert-l: var(--pystore-warning-50-l);
+  --pystore-warning-10-invert: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-10-invert-l),
+    1
+  );
+  --pystore-warning-15: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-15-l),
+    1
+  );
+  --pystore-warning-15-invert-l: var(--pystore-warning-70-l);
+  --pystore-warning-15-invert: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-15-invert-l),
+    1
+  );
+  --pystore-warning-20: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-20-l),
+    1
+  );
+  --pystore-warning-20-invert-l: var(--pystore-warning-100-l);
+  --pystore-warning-20-invert: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-20-invert-l),
+    1
+  );
+  --pystore-warning-25: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-25-l),
+    1
+  );
+  --pystore-warning-25-invert-l: var(--pystore-warning-100-l);
+  --pystore-warning-25-invert: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-25-invert-l),
+    1
+  );
+  --pystore-warning-30: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-30-l),
+    1
+  );
+  --pystore-warning-30-invert-l: var(--pystore-warning-100-l);
+  --pystore-warning-30-invert: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-30-invert-l),
+    1
+  );
+  --pystore-warning-35: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-35-l),
+    1
+  );
+  --pystore-warning-35-invert-l: var(--pystore-warning-100-l);
+  --pystore-warning-35-invert: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-35-invert-l),
+    1
+  );
+  --pystore-warning-40: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-40-l),
+    1
+  );
+  --pystore-warning-40-invert-l: var(--pystore-warning-00-l);
+  --pystore-warning-40-invert: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-40-invert-l),
+    1
+  );
+  --pystore-warning-45: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-45-l),
+    1
+  );
+  --pystore-warning-45-invert-l: var(--pystore-warning-05-l);
+  --pystore-warning-45-invert: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-45-invert-l),
+    1
+  );
+  --pystore-warning-50: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-50-l),
+    1
+  );
+  --pystore-warning-50-invert-l: var(--pystore-warning-10-l);
+  --pystore-warning-50-invert: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-50-invert-l),
+    1
+  );
+  --pystore-warning-55: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-55-l),
+    1
+  );
+  --pystore-warning-55-invert-l: var(--pystore-warning-10-l);
+  --pystore-warning-55-invert: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-55-invert-l),
+    1
+  );
+  --pystore-warning-60: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-60-l),
+    1
+  );
+  --pystore-warning-60-invert-l: var(--pystore-warning-10-l);
+  --pystore-warning-60-invert: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-60-invert-l),
+    1
+  );
+  --pystore-warning-65: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-65-l),
+    1
+  );
+  --pystore-warning-65-invert-l: var(--pystore-warning-10-l);
+  --pystore-warning-65-invert: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-65-invert-l),
+    1
+  );
+  --pystore-warning-70: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-70-l),
+    1
+  );
+  --pystore-warning-70-invert-l: var(--pystore-warning-15-l);
+  --pystore-warning-70-invert: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-70-invert-l),
+    1
+  );
+  --pystore-warning-75: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-75-l),
+    1
+  );
+  --pystore-warning-75-invert-l: var(--pystore-warning-15-l);
+  --pystore-warning-75-invert: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-75-invert-l),
+    1
+  );
+  --pystore-warning-80: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-80-l),
+    1
+  );
+  --pystore-warning-80-invert-l: var(--pystore-warning-15-l);
+  --pystore-warning-80-invert: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-80-invert-l),
+    1
+  );
+  --pystore-warning-85: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-85-l),
+    1
+  );
+  --pystore-warning-85-invert-l: var(--pystore-warning-15-l);
+  --pystore-warning-85-invert: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-85-invert-l),
+    1
+  );
+  --pystore-warning-90: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-90-l),
+    1
+  );
+  --pystore-warning-90-invert-l: var(--pystore-warning-15-l);
+  --pystore-warning-90-invert: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-90-invert-l),
+    1
+  );
+  --pystore-warning-95: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-95-l),
+    1
+  );
+  --pystore-warning-95-invert-l: var(--pystore-warning-15-l);
+  --pystore-warning-95-invert: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-95-invert-l),
+    1
+  );
+  --pystore-warning-100: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-100-l),
+    1
+  );
+  --pystore-warning-100-invert-l: var(--pystore-warning-20-l);
+  --pystore-warning-100-invert: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-100-invert-l),
+    1
+  );
+  --pystore-warning-invert-l: var(--pystore-warning-10-l);
+  --pystore-warning-invert: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-invert-l),
+    1
+  );
+  --pystore-warning-light-l: var(--pystore-warning-90-l);
+  --pystore-warning-light: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-light-l),
+    1
+  );
+  --pystore-warning-light-invert-l: var(--pystore-warning-15-l);
+  --pystore-warning-light-invert: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-light-invert-l),
+    1
+  );
+  --pystore-warning-dark-l: var(--pystore-warning-10-l);
+  --pystore-warning-dark: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-dark-l),
+    1
+  );
+  --pystore-warning-dark-invert-l: var(--pystore-warning-50-l);
+  --pystore-warning-dark-invert: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-dark-invert-l),
+    1
+  );
+  --pystore-warning-soft: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-soft-l),
+    1
+  );
+  --pystore-warning-bold: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-bold-l),
+    1
+  );
+  --pystore-warning-soft-invert: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-soft-invert-l),
+    1
+  );
+  --pystore-warning-bold-invert: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-bold-invert-l),
+    1
+  );
+  --pystore-warning-on-scheme-l: 23%;
+  --pystore-warning-on-scheme: hsla(
+    var(--pystore-warning-h),
+    var(--pystore-warning-s),
+    var(--pystore-warning-on-scheme-l),
+    1
+  );
+  --pystore-danger: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-l),
+    1
+  );
+  --pystore-danger-base: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-l),
+    1
+  );
+  --pystore-danger-rgb: 255, 102, 133;
+  --pystore-danger-h: 348deg;
+  --pystore-danger-s: 100%;
+  --pystore-danger-l: 70%;
+  --pystore-danger-00-l: 0%;
+  --pystore-danger-05-l: 5%;
+  --pystore-danger-10-l: 10%;
+  --pystore-danger-15-l: 15%;
+  --pystore-danger-20-l: 20%;
+  --pystore-danger-25-l: 25%;
+  --pystore-danger-30-l: 30%;
+  --pystore-danger-35-l: 35%;
+  --pystore-danger-40-l: 40%;
+  --pystore-danger-45-l: 45%;
+  --pystore-danger-50-l: 50%;
+  --pystore-danger-55-l: 55%;
+  --pystore-danger-60-l: 60%;
+  --pystore-danger-65-l: 65%;
+  --pystore-danger-70-l: 70%;
+  --pystore-danger-75-l: 75%;
+  --pystore-danger-80-l: 80%;
+  --pystore-danger-85-l: 85%;
+  --pystore-danger-90-l: 90%;
+  --pystore-danger-95-l: 95%;
+  --pystore-danger-100-l: 100%;
+  --pystore-danger-00: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-00-l),
+    1
+  );
+  --pystore-danger-00-invert-l: var(--pystore-danger-65-l);
+  --pystore-danger-00-invert: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-00-invert-l),
+    1
+  );
+  --pystore-danger-05: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-05-l),
+    1
+  );
+  --pystore-danger-05-invert-l: var(--pystore-danger-70-l);
+  --pystore-danger-05-invert: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-05-invert-l),
+    1
+  );
+  --pystore-danger-10: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-10-l),
+    1
+  );
+  --pystore-danger-10-invert-l: var(--pystore-danger-75-l);
+  --pystore-danger-10-invert: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-10-invert-l),
+    1
+  );
+  --pystore-danger-15: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-15-l),
+    1
+  );
+  --pystore-danger-15-invert-l: var(--pystore-danger-80-l);
+  --pystore-danger-15-invert: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-15-invert-l),
+    1
+  );
+  --pystore-danger-20: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-20-l),
+    1
+  );
+  --pystore-danger-20-invert-l: var(--pystore-danger-85-l);
+  --pystore-danger-20-invert: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-20-invert-l),
+    1
+  );
+  --pystore-danger-25: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-25-l),
+    1
+  );
+  --pystore-danger-25-invert-l: var(--pystore-danger-90-l);
+  --pystore-danger-25-invert: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-25-invert-l),
+    1
+  );
+  --pystore-danger-30: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-30-l),
+    1
+  );
+  --pystore-danger-30-invert-l: var(--pystore-danger-100-l);
+  --pystore-danger-30-invert: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-30-invert-l),
+    1
+  );
+  --pystore-danger-35: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-35-l),
+    1
+  );
+  --pystore-danger-35-invert-l: var(--pystore-danger-100-l);
+  --pystore-danger-35-invert: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-35-invert-l),
+    1
+  );
+  --pystore-danger-40: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-40-l),
+    1
+  );
+  --pystore-danger-40-invert-l: var(--pystore-danger-100-l);
+  --pystore-danger-40-invert: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-40-invert-l),
+    1
+  );
+  --pystore-danger-45: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-45-l),
+    1
+  );
+  --pystore-danger-45-invert-l: var(--pystore-danger-100-l);
+  --pystore-danger-45-invert: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-45-invert-l),
+    1
+  );
+  --pystore-danger-50: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-50-l),
+    1
+  );
+  --pystore-danger-50-invert-l: var(--pystore-danger-100-l);
+  --pystore-danger-50-invert: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-50-invert-l),
+    1
+  );
+  --pystore-danger-55: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-55-l),
+    1
+  );
+  --pystore-danger-55-invert-l: var(--pystore-danger-100-l);
+  --pystore-danger-55-invert: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-55-invert-l),
+    1
+  );
+  --pystore-danger-60: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-60-l),
+    1
+  );
+  --pystore-danger-60-invert-l: var(--pystore-danger-100-l);
+  --pystore-danger-60-invert: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-60-invert-l),
+    1
+  );
+  --pystore-danger-65: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-65-l),
+    1
+  );
+  --pystore-danger-65-invert-l: var(--pystore-danger-00-l);
+  --pystore-danger-65-invert: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-65-invert-l),
+    1
+  );
+  --pystore-danger-70: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-70-l),
+    1
+  );
+  --pystore-danger-70-invert-l: var(--pystore-danger-05-l);
+  --pystore-danger-70-invert: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-70-invert-l),
+    1
+  );
+  --pystore-danger-75: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-75-l),
+    1
+  );
+  --pystore-danger-75-invert-l: var(--pystore-danger-10-l);
+  --pystore-danger-75-invert: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-75-invert-l),
+    1
+  );
+  --pystore-danger-80: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-80-l),
+    1
+  );
+  --pystore-danger-80-invert-l: var(--pystore-danger-15-l);
+  --pystore-danger-80-invert: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-80-invert-l),
+    1
+  );
+  --pystore-danger-85: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-85-l),
+    1
+  );
+  --pystore-danger-85-invert-l: var(--pystore-danger-20-l);
+  --pystore-danger-85-invert: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-85-invert-l),
+    1
+  );
+  --pystore-danger-90: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-90-l),
+    1
+  );
+  --pystore-danger-90-invert-l: var(--pystore-danger-25-l);
+  --pystore-danger-90-invert: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-90-invert-l),
+    1
+  );
+  --pystore-danger-95: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-95-l),
+    1
+  );
+  --pystore-danger-95-invert-l: var(--pystore-danger-25-l);
+  --pystore-danger-95-invert: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-95-invert-l),
+    1
+  );
+  --pystore-danger-100: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-100-l),
+    1
+  );
+  --pystore-danger-100-invert-l: var(--pystore-danger-30-l);
+  --pystore-danger-100-invert: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-100-invert-l),
+    1
+  );
+  --pystore-danger-invert-l: var(--pystore-danger-05-l);
+  --pystore-danger-invert: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-invert-l),
+    1
+  );
+  --pystore-danger-light-l: var(--pystore-danger-90-l);
+  --pystore-danger-light: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-light-l),
+    1
+  );
+  --pystore-danger-light-invert-l: var(--pystore-danger-25-l);
+  --pystore-danger-light-invert: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-light-invert-l),
+    1
+  );
+  --pystore-danger-dark-l: var(--pystore-danger-10-l);
+  --pystore-danger-dark: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-dark-l),
+    1
+  );
+  --pystore-danger-dark-invert-l: var(--pystore-danger-75-l);
+  --pystore-danger-dark-invert: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-dark-invert-l),
+    1
+  );
+  --pystore-danger-soft: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-soft-l),
+    1
+  );
+  --pystore-danger-bold: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-bold-l),
+    1
+  );
+  --pystore-danger-soft-invert: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-soft-invert-l),
+    1
+  );
+  --pystore-danger-bold-invert: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-bold-invert-l),
+    1
+  );
+  --pystore-danger-on-scheme-l: 40%;
+  --pystore-danger-on-scheme: hsla(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-on-scheme-l),
+    1
+  );
+  --pystore-black-bis: #14161a;
+  --pystore-black-ter: #1f2229;
+  --pystore-grey-darker: #2e333d;
+  --pystore-grey-dark: #404654;
+  --pystore-grey: #69748c;
+  --pystore-grey-light: #abb1bf;
+  --pystore-grey-lighter: #d6d9e0;
+  --pystore-white-ter: #f3f4f6;
+  --pystore-white-bis: #f9fafb;
+  --pystore-shadow-h: 221deg;
+  --pystore-shadow-s: 14%;
+  --pystore-shadow-l: 4%;
+  --pystore-size-1: 3rem;
+  --pystore-size-2: 2.5rem;
+  --pystore-size-3: 2rem;
+  --pystore-size-4: 1.5rem;
+  --pystore-size-5: 1.25rem;
+  --pystore-size-6: 1rem;
+  --pystore-size-7: 0.75rem;
+  --pystore-scheme-main: hsl(
+    var(--pystore-scheme-h),
+    var(--pystore-scheme-s),
+    var(--pystore-scheme-main-l)
+  );
+  --pystore-scheme-main-bis: hsl(
+    var(--pystore-scheme-h),
+    var(--pystore-scheme-s),
+    var(--pystore-scheme-main-bis-l)
+  );
+  --pystore-scheme-main-ter: hsl(
+    var(--pystore-scheme-h),
+    var(--pystore-scheme-s),
+    var(--pystore-scheme-main-ter-l)
+  );
+  --pystore-background: hsl(
+    var(--pystore-scheme-h),
+    var(--pystore-scheme-s),
+    var(--pystore-background-l)
+  );
+  --pystore-background-hover: hsl(
+    var(--pystore-scheme-h),
+    var(--pystore-scheme-s),
+    calc(var(--pystore-background-l) + var(--pystore-hover-background-l-delta))
+  );
+  --pystore-background-active: hsl(
+    var(--pystore-scheme-h),
+    var(--pystore-scheme-s),
+    calc(var(--pystore-background-l) + var(--pystore-active-background-l-delta))
+  );
+  --pystore-border-weak: hsl(
+    var(--pystore-scheme-h),
+    var(--pystore-scheme-s),
+    var(--pystore-border-weak-l)
+  );
+  --pystore-border: hsl(
+    var(--pystore-scheme-h),
+    var(--pystore-scheme-s),
+    var(--pystore-border-l)
+  );
+  --pystore-border-hover: hsl(
+    var(--pystore-scheme-h),
+    var(--pystore-scheme-s),
+    calc(var(--pystore-border-l) + var(--pystore-hover-border-l-delta))
+  );
+  --pystore-border-active: hsl(
+    var(--pystore-scheme-h),
+    var(--pystore-scheme-s),
+    calc(var(--pystore-border-l) + var(--pystore-active-border-l-delta))
+  );
+  --pystore-text-weak: hsl(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-weak-l)
+  );
+  --pystore-text: hsl(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-l)
+  );
+  --pystore-text-strong: hsl(
+    var(--pystore-text-h),
+    var(--pystore-text-s),
+    var(--pystore-text-strong-l)
+  );
+  --pystore-scheme-invert-ter: hsl(
+    var(--pystore-scheme-h),
+    var(--pystore-scheme-s),
+    var(--pystore-scheme-invert-ter-l)
+  );
+  --pystore-scheme-invert-bis: hsl(
+    var(--pystore-scheme-h),
+    var(--pystore-scheme-s),
+    var(--pystore-scheme-invert-bis-l)
+  );
+  --pystore-scheme-invert: hsl(
+    var(--pystore-scheme-h),
+    var(--pystore-scheme-s),
+    var(--pystore-scheme-invert-l)
+  );
+  --pystore-link: hsl(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-l)
+  );
+  --pystore-link-text: hsl(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    var(--pystore-link-on-scheme-l)
+  );
+  --pystore-link-text-hover: hsl(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    calc(var(--pystore-link-on-scheme-l) + var(--pystore-hover-color-l-delta))
+  );
+  --pystore-link-text-active: hsl(
+    var(--pystore-link-h),
+    var(--pystore-link-s),
+    calc(var(--pystore-link-on-scheme-l) + var(--pystore-active-color-l-delta))
+  );
+  --pystore-focus-h: var(--pystore-link-h);
+  --pystore-focus-s: var(--pystore-link-s);
+  --pystore-focus-l: var(--pystore-link-l);
+  --pystore-focus-offset: 1px;
+  --pystore-focus-style: solid;
+  --pystore-focus-width: 2px;
+  --pystore-focus-shadow-size: 0 0 0 0.1875em;
+  --pystore-focus-shadow-alpha: 0.25;
+  --pystore-code: hsl(
+    var(--pystore-danger-h),
+    var(--pystore-danger-s),
+    var(--pystore-danger-on-scheme-l)
+  );
+  --pystore-code-background: var(--pystore-background);
+  --pystore-pre: var(--pystore-text);
+  --pystore-pre-background: var(--pystore-background);
+  --pystore-shadow: 0 0.5em 1em -0.125em hsla(var(--pystore-shadow-h), var(--pystore-shadow-s), var(--pystore-shadow-l), 0.1),
+    0 0px 0 1px
+      hsla(
+        var(--pystore-shadow-h),
+        var(--pystore-shadow-s),
+        var(--pystore-shadow-l),
+        0.02
+      );
+}
